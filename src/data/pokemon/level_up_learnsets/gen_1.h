@@ -366,7 +366,6 @@ static const struct LevelUpMove sRaichuLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_THUNDER_SHOCK),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
     LEVEL_UP_MOVE( 1, MOVE_THUNDER_WAVE),
-    LEVEL_UP_MOVE( 1, MOVE_FAKE_OUT),
     LEVEL_UP_END
 };
 
@@ -700,7 +699,6 @@ static const struct LevelUpMove sGloomLevelUpLearnset[] = {
     LEVEL_UP_MOVE(17, MOVE_STUN_SPORE),
     LEVEL_UP_MOVE(19, MOVE_SLEEP_POWDER),
     LEVEL_UP_MOVE(28, MOVE_ACID),
-    LEVEL_UP_MOVE(35, MOVE_RAGE_POWDER),
     LEVEL_UP_MOVE(38, MOVE_PETAL_DANCE),
     LEVEL_UP_MOVE(52, MOVE_SOLAR_BEAM),
     LEVEL_UP_END
@@ -714,7 +712,6 @@ static const struct LevelUpMove sVileplumeLevelUpLearnset[] = {
     LEVEL_UP_MOVE(15, MOVE_POISON_POWDER),
     LEVEL_UP_MOVE(17, MOVE_STUN_SPORE),
     LEVEL_UP_MOVE(19, MOVE_SLEEP_POWDER),
-    LEVEL_UP_MOVE(35, MOVE_RAGE_POWDER),
     LEVEL_UP_END
 };
 
@@ -724,7 +721,6 @@ static const struct LevelUpMove sBellossomLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_SWEET_SCENT),
     LEVEL_UP_MOVE( 1, MOVE_STUN_SPORE),
     LEVEL_UP_MOVE( 1, MOVE_PETAL_DANCE),
-    LEVEL_UP_MOVE(35, MOVE_RAGE_POWDER),
     LEVEL_UP_MOVE(55, MOVE_SOLAR_BEAM),
     LEVEL_UP_END
 };
