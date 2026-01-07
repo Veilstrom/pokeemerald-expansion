@@ -1158,3 +1158,13 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
 	.include "data/scripts/dexnav.inc"
+
+	.include "data/maps/Kichijoji/scripts.inc"
+
+	.include "data/maps/KichijojiForest/scripts.inc"
+
+	.include "data/maps/KichijojiOutskirts/scripts.inc"
+
+	.include "data/maps/Kichijoji_Mall/scripts.inc"
+
+	.include "data/maps/Kichijoji_Pokemon_Center/scripts.inc"

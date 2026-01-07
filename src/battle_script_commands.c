@@ -537,7 +537,7 @@ static void Cmd_trydobeatup(void);
 static void Cmd_setsemiinvulnerablebit(void);
 static void Cmd_tryfiretwoturnmovenowbyeffect(void);
 static void Cmd_unused_0xC7(void);
-static void Cmd_unused_c8(void);
+static void Cmd_handledeviltrigger(void);
 static void Cmd_trymemento(void);
 static void Cmd_setforcedtarget(void);
 static void Cmd_setcharge(void);
@@ -796,7 +796,7 @@ void (*const gBattleScriptingCommandsTable[])(void) =
     Cmd_setsemiinvulnerablebit,                  //0xC5
     Cmd_tryfiretwoturnmovenowbyeffect,           //0xC6
     Cmd_unused_0xC7,                             //0xC7
-    Cmd_unused_c8,                               //0xC8
+    Cmd_handledeviltrigger,                      //0xC8
     Cmd_trymemento,                              //0xC9
     Cmd_setforcedtarget,                         //0xCA
     Cmd_setcharge,                               //0xCB
@@ -2438,6 +2438,12 @@ static void Cmd_datahpupdate(void)
          && GetMoveCategory(gCurrentMove) != DAMAGE_CATEGORY_STATUS
          && IsBattlerTurnDamaged(gBattlerTarget))
             GetBattlerPartyState(gBattlerTarget)->timesGotHit++;
+
+        if (gBattlerAttacker != gBattlerTarget
+         && !isPassiveHpUpdate
+         && GetMoveCategory(gCurrentMove) != DAMAGE_CATEGORY_STATUS
+         && IsBattlerTurnDamaged(gBattlerTarget))
+            GetBattlerPartyState(gBattlerAttacker)->timesDealtHits++;
 
         if (GetMoveEffect(gCurrentMove) == EFFECT_KNOCK_OFF
          && !isPassiveHpUpdate
@@ -5650,6 +5656,38 @@ static bool32 HandleMoveEndAbilityBlock(u32 battlerAtk, u32 battlerDef, u32 move
             }
         }
         break;
+
+    case ABILITY_DEVIL_TRIGGER:
+        {
+        
+            if (!IsBattlerAlive(battlerAtk)
+             || NoAliveMonsForEitherParty()
+             || gCurrentMove != MOVE_TAUNT
+             || GetBattlerAbility(gBattlerTarget) == ABILITY_OBLIVIOUS
+             || GetBattlerAbility(gBattlerTarget) == ABILITY_MAGIC_BOUNCE
+             || GetBattlerAbility(gBattlerTarget) == ABILITY_GOOD_AS_GOLD
+             || IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL)
+             || gDisableStructs[gBattlerTarget].tauntTimer <= 2)
+                break;
+
+            if (gDisableStructs[gBattlerAttacker].devilTriggerCounter)
+                break;
+
+            if (gBattleMons[battlerAtk].species == SPECIES_DANTE)
+            {
+
+                gLastUsedAbility = abilityAtk;
+                gDisableStructs[gBattlerAttacker].devilTriggerCounter = TRUE;
+                PREPARE_SPECIES_BUFFER(gBattleTextBuff1, gBattleMons[battlerAtk].species);
+                GetBattlerPartyState(battlerAtk)->changedSpecies = gBattleMons[battlerAtk].species;
+                gBattleMons[battlerAtk].species = SPECIES_DANTE_DEVIL;
+                BattleScriptCall(BattleScript_DevilTriggerActivate);
+                effect = TRUE;
+            }
+        
+        }
+        break;
+
     case ABILITY_BATTLE_BOND:
         {
             if (!IsBattlerAlive(battlerAtk)
@@ -11213,6 +11251,7 @@ static void Cmd_transformdataexecution(void)
         s32 i;
         u8 *battleMonAttacker, *battleMonTarget;
         u8 timesGotHit;
+        u8 timesDealtHits;
 
         gBattleMons[gBattlerAttacker].volatiles.transformed = TRUE;
         gDisableStructs[gBattlerAttacker].disabledMove = MOVE_NONE;
@@ -11224,6 +11263,9 @@ static void Cmd_transformdataexecution(void)
 
         timesGotHit = GetBattlerPartyState(gBattlerTarget)->timesGotHit;
         GetBattlerPartyState(gBattlerAttacker)->timesGotHit = timesGotHit;
+
+        timesDealtHits = GetBattlerPartyState(gBattlerAttacker)->timesDealtHits;
+        GetBattlerPartyState(gBattlerTarget)->timesDealtHits = timesDealtHits;
 
         PREPARE_SPECIES_BUFFER(gBattleTextBuff1, gBattleMons[gBattlerTarget].species)
 
@@ -12137,6 +12179,11 @@ static void Cmd_handlefurycutter(void)
     }
 }
 
+static void Cmd_handledeviltrigger(void)
+{
+
+}
+
 static void Cmd_setembargo(void)
 {
     CMD_ARGS(const u8 *failInstr);
@@ -12640,10 +12687,6 @@ static void Cmd_tryfiretwoturnmovenowbyeffect(void)
 }
 
 static void Cmd_unused_0xC7(void)
-{
-}
-
-static void Cmd_unused_c8(void)
 {
 }
 
@@ -17189,7 +17232,7 @@ void BS_ArenaWaitMessage(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
-void BS_WaitCry(void)
+void BS_Wait(void)
 {
     NATIVE_ARGS();
     if (!IsCryFinished())
@@ -18071,7 +18114,6 @@ void BS_SetSkyDrop(void)
     gBattleMons[gBattlerTarget].volatiles.bideTurns = 0;
     gDisableStructs[gBattlerTarget].rolloutTimer = 0;
     gDisableStructs[gBattlerTarget].furyCutterCounter = 0;
-
     // End any Follow Me/Rage Powder effects caused by the target
     if (gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTimer != 0 && gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTarget == gBattlerTarget)
         gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTimer = 0;

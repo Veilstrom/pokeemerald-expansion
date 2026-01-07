@@ -4410,6 +4410,56 @@
       "secondary_tileset": "gTileset_MysteryEventsHouse",
       "border_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/map.bin"
+    },
+    {
+      "id": "LAYOUT_KICHIJOJI",
+      "name": "Kichijoji_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lilycove",
+      "border_filepath": "data/layouts/Kichijoji/border.bin",
+      "blockdata_filepath": "data/layouts/Kichijoji/map.bin"
+    },
+    {
+      "id": "LAYOUT_KICHIJOJI_FOREST",
+      "name": "KichijojiForest_Layout",
+      "width": 44,
+      "height": 48,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BattleFrontierOutsideEast",
+      "border_filepath": "data/layouts/KichijojiForest/border.bin",
+      "blockdata_filepath": "data/layouts/KichijojiForest/map.bin"
+    },
+    {
+      "id": "LAYOUT_KICHIJOJI_OUTSKIRTS",
+      "name": "KichijojiOutskirts_Layout",
+      "width": 86,
+      "height": 23,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/KichijojiOutskirts/border.bin",
+      "blockdata_filepath": "data/layouts/KichijojiOutskirts/map.bin"
+    },
+    {
+      "id": "LAYOUT_KICHIJOJI_MALL",
+      "name": "Kichijoji_Mall_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Kichijoji_Mall/border.bin",
+      "blockdata_filepath": "data/layouts/Kichijoji_Mall/map.bin"
+    },
+    {
+      "id": "LAYOUT_KICHIJOJI_POKEMON_CENTER",
+      "name": "Kichijoji_Pokemon_Center_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Kichijoji_Pokemon_Center/border.bin",
+      "blockdata_filepath": "data/layouts/Kichijoji_Pokemon_Center/map.bin"
     }
   ]
 }

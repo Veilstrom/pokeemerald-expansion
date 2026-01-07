@@ -543,6 +543,7 @@ const u16 gPokedexOrder_Alphabetical[] =
     NATIONAL_DEX_MAMOSWINE,
     NATIONAL_DEX_MANAPHY,
     NATIONAL_DEX_MANDIBUZZ,
+    NATIONAL_DEX_MANDRAKE,
     NATIONAL_DEX_MANECTRIC,
     NATIONAL_DEX_MANKEY,
     NATIONAL_DEX_MANTINE,
@@ -1056,6 +1057,7 @@ const u16 gPokedexOrder_Alphabetical[] =
 const u16 gPokedexOrder_Weight[] =
 {
     // 0.0 - 21.8 lbs / 0.0 - 9.9 kg
+    NATIONAL_DEX_MANDRAKE,
     NATIONAL_DEX_GASTLY,
     NATIONAL_DEX_HAUNTER,
     NATIONAL_DEX_FLABEBE,//_RED,
@@ -2937,6 +2939,7 @@ const u16 gPokedexOrder_Weight[] =
 const u16 gPokedexOrder_Height[] =
 {
     // 0'04" / 0.1m
+    NATIONAL_DEX_MANDRAKE,
     NATIONAL_DEX_JOLTIK,
     NATIONAL_DEX_FLABEBE,//_RED,
     //NATIONAL_DEX_FLABEBE_YELLOW,

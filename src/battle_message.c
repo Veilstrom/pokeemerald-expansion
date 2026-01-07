@@ -897,6 +897,14 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_POWERCONSTRUCTPRESENCEOFMANY]         = COMPOUND_STRING("You sense the presence of many!"),
     [STRINGID_POWERCONSTRUCTTRANSFORM]              = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} transformed into its Complete Forme!"),
     [STRINGID_ABILITYSHIELDPROTECTS]                = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s Ability is protected by the effects of its {B_LAST_ITEM}!"),
+    [STRINGID_DEVILTRIGGERRANKD]                    = COMPOUND_STRING("Dante's rank is Dismal..."),
+    [STRINGID_DEVILTRIGGERRANKC]                    = COMPOUND_STRING("Dante's rank is Crazy!"),
+    [STRINGID_DEVILTRIGGERRANKB]                    = COMPOUND_STRING("Dante's rank is Badass!"),
+    [STRINGID_DEVILTRIGGERRANKA]                    = COMPOUND_STRING("Dante's rank is Apocalyptic!"),
+    [STRINGID_DEVILTRIGGERRANKS]                    = COMPOUND_STRING("Dante's rank is Savage!"),
+    [STRINGID_DEVILTRIGGERRANKSS]                   = COMPOUND_STRING("Dante's rank is Sick Skills!!"),
+    [STRINGID_DEVILTRIGGERRANKSSS]                  = COMPOUND_STRING("Dante's rank is Smokin' Sexy Style!!!"),
+    [STRINGID_DEVILTRIGGERACTIVATE]                 = COMPOUND_STRING("Dante's activating his Devil Trigger!"),
 };
 
 const u16 gTrainerUsedItemStringIds[] =

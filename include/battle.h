@@ -94,6 +94,7 @@ struct DisableStruct
     u16 rolloutTimerStartValue;
     u16 tauntTimer;
     u8 furyCutterCounter;
+    u8 devilTriggerCounter:1;
     u8 battlerPreventingEscape;
     u8 battlerWithSureHit;
     u8 isFirstTurn;
@@ -600,6 +601,7 @@ struct PartyState
     u32 transformZeroToHero:1;
     u32 supersweetSyrup:1;
     u32 timesGotHit:5;
+    u32 timesDealtHits:10;
     u32 changedSpecies:11; // For forms when multiple mons can change into the same pokemon.
     u32 sentOut:1;
     u32 padding:9;

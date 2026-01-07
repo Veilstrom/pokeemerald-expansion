@@ -1322,5 +1322,20 @@ static const struct FormChange sTerapagosFormChangeTable[] = {
 };
 #endif //P_FAMILY_TERAPAGOS
 
+static const struct FormChange sKhonsuFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_HP_PERCENT, SPECIES_KHONSU,         ABILITY_ZEN_MODE, HP_HIGHER_THAN,   50},
+    {FORM_CHANGE_BATTLE_HP_PERCENT, SPECIES_KHONSU_RA,      ABILITY_ZEN_MODE, HP_LOWER_EQ_THAN, 50},
+    {FORM_CHANGE_FAINT,             SPECIES_KHONSU},
+    {FORM_CHANGE_END_BATTLE,        SPECIES_KHONSU},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+static const struct FormChange sDanteFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_SWITCH,     SPECIES_DANTE},
+    {FORM_CHANGE_FAINT,             SPECIES_DANTE},
+    {FORM_CHANGE_END_BATTLE,        SPECIES_DANTE},
+    {FORM_CHANGE_TERMINATOR},
+};
+
 #undef WHEN_LEARNED
 #undef WHEN_FORGOTTEN

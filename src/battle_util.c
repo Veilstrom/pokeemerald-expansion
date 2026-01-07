@@ -1137,7 +1137,6 @@ const u8 *CancelMultiTurnMoves(u32 battler, enum SkyDropState skyDropState)
 
     gDisableStructs[battler].rolloutTimer = 0;
     gDisableStructs[battler].furyCutterCounter = 0;
-
     return result;
 }
 
@@ -4399,6 +4398,28 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     effect++;
                 }
                 break;
+            /*case ABILITY_DEVIL_TRIGGER:
+                if (gCurrentMove == MOVE_TAUNT
+                && gDisableStructs[battler].tauntTimer == 0
+                && !(GetBattlerAbility(gBattlerTarget) == ABILITY_OBLIVIOUS)
+                && !IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL)
+                && gChosenMove == MOVE_TAUNT)
+                {
+                    gBattleScripting.battler = battler;
+                    PREPARE_SPECIES_BUFFER(gBattleTextBuff1, gBattleMons[battler].species);
+                    GetBattlerPartyState(battler)->changedSpecies = gBattleMons[battler].species;
+                    gBattleMons[battler].species = SPECIES_DANTE_DEVIL;
+                    BattleScriptPushCursorAndCallback(BattleScript_DevilTriggerActivate);
+                    effect++;
+                }
+                break;
+                if (TryBattleFormChange(battler, FORM_CHANGE_BATTLE_AFTER_MOVE))
+                { 
+                    gBattleScripting.battler = battler;
+                    BattleScriptPushCursorAndCallback(BattleScript_DevilTriggerActivate);
+                    effect++;
+                }
+                break; */
             case ABILITY_BALL_FETCH:
                 if (gBattleMons[battler].item == ITEM_NONE
                     && gBattleResults.catchAttempts[ItemIdToBallId(gLastUsedBall)] >= 1
@@ -5004,6 +5025,21 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_DEVIL_TRIGGER:
+            if (gCurrentMove == MOVE_TAUNT
+             && !(gBattleStruct->moveResultFlags[gBattlerTarget] & MOVE_RESULT_NO_EFFECT)
+             && GetBattlerAbility(gBattlerTarget) != ABILITY_OBLIVIOUS
+             && GetBattlerAbility(gBattlerTarget) != ABILITY_MAGIC_BOUNCE
+             && GetBattlerAbility(gBattlerTarget) != ABILITY_GOOD_AS_GOLD
+             && !IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL)
+             && !IsBattlerAlly(gBattlerAttacker, gBattlerTarget))
+            {
+                gEffectBattler = gBattlerTarget;
+                gBattleScripting.battler = gBattlerAttacker;
+                gBattleScripting.moveEffect = MOVE_EFFECT_ATK_PLUS_2;
+                gBattleScripting.moveEffect = MOVE_EFFECT_DEF_MINUS_2;
+                BattleScriptCall(BattleScript_EffectDevilTriggerTaunt);
+            }
         case ABILITY_STENCH:
             if (IsBattlerAlive(gBattlerTarget)
              && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
@@ -5029,7 +5065,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_POISON_PUPPETEER:
-            if (gBattleMons[gBattlerAttacker].species == SPECIES_PECHARUNT
+            if (gBattleMons[gBattlerAttacker].species == SPECIES_NEBIROS
              && gBattleStruct->poisonPuppeteerConfusion == TRUE
              && CanBeConfused(gBattlerTarget))
             {

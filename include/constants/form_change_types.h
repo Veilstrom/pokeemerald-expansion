@@ -137,6 +137,9 @@ enum FormChanges
     FORM_CHANGE_OVERWORLD_WEATHER,
     // Form change that activates when the Pokémon is deposited into the PC or Daycare.
     FORM_CHANGE_DEPOSIT,
+    // Form change that activates when the Pokémon deals a number of hits or more during a battle.
+    // param1: number of hits
+    FORM_CHANGE_DEALT_HITS,
 };
 
 #endif // GUARD_CONSTANTS_FORM_CHANGE_TYPES_H

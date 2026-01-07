@@ -1089,7 +1089,7 @@
 	.byte 0xc7
 	.endm
 
-	.macro unused_c8
+	.macro handledeviltrigger
 	.byte 0xc8
 	.endm
 

@@ -20122,7 +20122,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "User's form determines type."),
         .effect = EFFECT_RAGING_BULL,
         .power = 90,
-        .type = TYPE_NORMAL,
+        .type = TYPE_FIRE,
         .accuracy = 100,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
@@ -21127,6 +21127,53 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             .chance = 50,
         }),
         .battleAnimScript = gBattleAnimMove_MalignantChain,
+    },
+
+    [MOVE_EBONY_AND_IVORY] =
+    {
+        .name = COMPOUND_STRING("Ebony & Ivory"),
+        .description = COMPOUND_STRING(
+            "The user attacks twice. Two\n"
+            "targets are hit once each."),
+        .effect = EFFECT_DRAGON_DARTS,
+        .power = 50,
+        .type = TYPE_STEEL,
+        .accuracy = 100,
+        .pp = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .strikeCount = 2,
+        .parentalBondBanned = TRUE,
+        .ballisticMove = TRUE,
+        .contestEffect = CONTEST_EFFECT_REPETITION_NOT_BORING,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_BulletSeed,
+    },
+
+    [MOVE_REBELLION] =
+    {
+        .name = COMPOUND_STRING("Rebellion"),
+        .description = COMPOUND_STRING(
+            "Cool and sylish slashes that\n"
+            "strike the foe 2 to 5 times."),
+        .effect = EFFECT_MULTI_HIT,
+        .power = 25,
+        .type = TYPE_FIGHTING,
+        .accuracy = 100,
+        .pp = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .slicingMove = TRUE,
+        .contestEffect = CONTEST_EFFECT_STARTLE_MON_WITH_JUDGES_ATTENTION,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_FAKE_OUT, COMBO_STARTER_FOCUS_ENERGY},
+        .battleAnimScript = gBattleAnimMove_Slash,
     },
 
     // Z-Moves

@@ -109,6 +109,29 @@ BattleScript_EffectSpicyExtractDefenseDown:
 BattleScript_EffectSpicyExtract_End:
 	goto BattleScript_MoveEnd
 
+BattleScript_EffectDevilTriggerTaunt::
+	attackcanceler
+	jumpifstat BS_TARGET, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_DevilTriggerTaunt_CheckShouldSkipAttackAnim
+	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_DEF, MIN_STAT_STAGE, BattleScript_DevilTriggerTaunt_CheckShouldSkipAttackAnim
+	goto BattleScript_ButItFailed
+BattleScript_DevilTriggerTaunt_CheckShouldSkipAttackAnim:
+	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0, BattleScript_DevilTriggerTaunt_RaiseAtk
+	bicword gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT
+	goto BattleScript_DevilTriggerTaunt_SkipAttackAnim
+BattleScript_DevilTriggerTaunt_RaiseAtk:
+BattleScript_DevilTriggerTaunt_SkipAttackAnim:
+	setstatchanger STAT_ATK, 2, FALSE
+	statbuffchange BS_TARGET, STAT_CHANGE_ALLOW_PTR, BattleScript_EffectDevilTriggerTauntDefenseDown
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_EffectDevilTriggerTauntDefenseDown:
+	setstatchanger STAT_DEF, 2, TRUE
+	statbuffchange BS_TARGET, STAT_CHANGE_ALLOW_PTR, BattleScript_EffectDevilTriggerTaunt_End
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_EffectDevilTriggerTaunt_End:
+	return
+
 BattleScript_EffectTidyUp::
 	attackcanceler
 	attackstring
@@ -6544,6 +6567,21 @@ BattleScript_PowerConstruct::
 	waitmessage B_WAIT_TIME_SHORT
 	end3
 
+BattleScript_DevilTriggerActivate::
+	flushtextbox
+	printstring STRINGID_DEVILTRIGGERRANKSSS
+	waitmessage B_WAIT_TIME_SHORT
+	pause 5
+	copybyte gBattlerAbility, gBattlerAttacker
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_DEVILTRIGGERACTIVATE
+	handleformchange BS_ATTACKER, 0
+	handleformchange BS_ATTACKER, 1
+	playanimation BS_ATTACKER, B_ANIM_MEGA_EVOLUTION
+	waitanimation
+	handleformchange BS_ATTACKER, 2
+	return
+
 BattleScript_UltraBurst::
 	flushtextbox
 	trytrainerslidezmovemsg
@@ -8708,7 +8746,6 @@ BattleScript_PalaceEndFlavorText::
 	end2
 
 BattleScript_ArenaTurnBeginning::
-	waitcry
 	volumedown
 	playse SE_ARENA_TIMEUP1
 	pause 8
@@ -8758,7 +8795,6 @@ BattleScript_ArenaDoJudgment::
 	printstring STRINGID_DEFEATEDOPPONENTBYREFEREE
 	waitmessage B_WAIT_TIME_LONG
 	playfaintcry BS_OPPONENT1
-	waitcry
 	dofaintanimation BS_OPPONENT1
 	cleareffectsonfaint BS_OPPONENT1
 	waitanimation
@@ -8773,7 +8809,6 @@ BattleScript_ArenaJudgmentPlayerLoses:
 	printstring STRINGID_LOSTTOOPPONENTBYREFEREE
 	waitmessage B_WAIT_TIME_LONG
 	playfaintcry BS_PLAYER1
-	waitcry
 	dofaintanimation BS_PLAYER1
 	cleareffectsonfaint BS_PLAYER1
 	waitanimation
@@ -8789,12 +8824,10 @@ BattleScript_ArenaJudgmentDraw:
 	waitmessage B_WAIT_TIME_LONG
 	arenabothmonslost
 	playfaintcry BS_PLAYER1
-	waitcry
 	dofaintanimation BS_PLAYER1
 	cleareffectsonfaint BS_PLAYER1
 	waitanimation
 	playfaintcry BS_OPPONENT1
-	waitcry
 	dofaintanimation BS_OPPONENT1
 	cleareffectsonfaint BS_OPPONENT1
 	waitanimation

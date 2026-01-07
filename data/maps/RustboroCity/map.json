@@ -14,11 +14,6 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE115",
-      "offset": 0,
-      "direction": "up"
-    },
-    {
       "map": "MAP_ROUTE104",
       "offset": 0,
       "direction": "down"
@@ -165,7 +160,7 @@
       "flag": "FLAG_HIDE_RUSTBORO_CITY_AQUA_GRUNT"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_DEVON_EMPLOYEE",
+      "graphics_id": "OBJ_EVENT_GFX_JACK_FROST",
       "x": 13,
       "y": 34,
       "elevation": 3,

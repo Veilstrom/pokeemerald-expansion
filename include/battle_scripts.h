@@ -533,6 +533,14 @@ extern const u8 BattleScript_AlreadyPoisoned[];
 extern const u8 BattleScript_AlreadyParalyzed[];
 extern const u8 BattleScript_AlreadyBurned[];
 extern const u8 BattleScript_PrintAbilityMadeIneffective[];
+extern const u8 BattleScript_DevilTriggerHit[];
+extern const u8 BattleScript_DevilTriggerRankD[];
+extern const u8 BattleScript_DevilTriggerRankC[];
+extern const u8 BattleScript_DevilTriggerRankB[];
+extern const u8 BattleScript_DevilTriggerRankA[];
+extern const u8 BattleScript_DevilTriggerRankS[];
+extern const u8 BattleScript_DevilTriggerRankSS[];
+extern const u8 BattleScript_DevilTriggerActivate[];
 extern const u8 BattleScript_ItDoesntAffectFoe[];
 
 // zmoves
@@ -862,6 +870,7 @@ extern const u8 BattleScript_EffectShedTail[];
 extern const u8 BattleScript_EffectUpperHand[];
 extern const u8 BattleScript_EffectTidyUp[];
 extern const u8 BattleScript_EffectSpicyExtract[];
+extern const u8 BattleScript_EffectDevilTriggerTaunt[];
 extern const u8 BattleScript_EffectFickleBeam[];
 extern const u8 BattleScript_FickleBeamDoubled[];
 extern const u8 BattleScript_QuestionForfeitBattle[];

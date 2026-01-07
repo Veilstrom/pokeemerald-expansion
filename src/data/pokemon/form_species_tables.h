@@ -2195,3 +2195,23 @@ static const u16 sTerapagosFormSpeciesIdTable[] = {
     FORM_SPECIES_END,
 };
 #endif //P_FAMILY_TERAPAGOS
+
+static const u16 sMitamaFormSpeciesIdTable[] = {
+    SPECIES_MITAMA,
+    SPECIES_KUSHI_MITAMA,
+    SPECIES_ARA_MITAMA,
+    SPECIES_NIGI_MITAMA,
+    FORM_SPECIES_END,
+};
+
+static const u16 sKhonsuFormSpeciesIdTable[] = {
+    SPECIES_KHONSU,
+    SPECIES_KHONSU_RA,
+    FORM_SPECIES_END,
+};
+
+static const u16 sDanteFormSpeciesIdTable[] = {
+    SPECIES_DANTE,
+    SPECIES_DANTE_DEVIL,
+    FORM_SPECIES_END,
+};

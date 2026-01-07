@@ -367,7 +367,11 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     [TRAINER_CLASS_FACTORY_HEAD] = { _("FACTORY HEAD") },
     [TRAINER_CLASS_PIKE_QUEEN] = { _("PIKE QUEEN") },
     [TRAINER_CLASS_PYRAMID_KING] = { _("PYRAMID KING") },
-    [TRAINER_CLASS_RS_PROTAG] = { _("{PKMN} TRAINER") },
+    [TRAINER_CLASS_SUMMONER] = { _("SUMMONER") },
+    [TRAINER_CLASS_CLASSMATE] = { _("CLASSMATE") },
+    [TRAINER_CLASS_FAIRY] = { _("FAIRY"), 3 },
+    [TRAINER_CLASS_JIRAE] = { _("JIRAE"), 4 },
+    [TRAINER_CLASS_KEY_WIELDER] = { _("KEY WIELDER"), 25 },
 };
 
 static void (*const sTurnActionsFuncsTable[])(void) =
@@ -5421,7 +5425,7 @@ static void HandleEndTurn_BattleWon(void)
         if (TRAINER_BATTLE_PARAM.opponentA == TRAINER_FRONTIER_BRAIN)
             PlayBGM(MUS_VICTORY_GYM_LEADER);
         else
-            PlayBGM(MUS_VICTORY_TRAINER);
+            PlayBGM(MUS_SMT_VICTORY);
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && !(gBattleTypeFlags & BATTLE_TYPE_LINK))
     {
@@ -5446,7 +5450,7 @@ static void HandleEndTurn_BattleWon(void)
             PlayBGM(MUS_VICTORY_GYM_LEADER);
             break;
         default:
-            PlayBGM(MUS_VICTORY_TRAINER);
+            PlayBGM(MUS_SMT_VICTORY);
             break;
         }
     }
