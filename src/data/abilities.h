@@ -2422,4 +2422,11 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeOverwritten = TRUE,
         .failsOnImposter = TRUE,
     },
+
+    [ABILITY_MARTIALIZE] =
+    {
+        .name = _("Martialize"),
+        .description = COMPOUND_STRING("Normal moves turn Fighting."),
+        .aiRating = 8,
+    },
 };

@@ -6771,6 +6771,58 @@ Cry_DanteDevil::
 Cry_Shiva::
 	.incbin "sound/direct_sound_samples/cries/shiva.bin"
 
+	.align 2
+Cry_VohuManah::
+	.incbin "sound/direct_sound_samples/cries/vohu_manah.bin"
+
+	.align 2
+Cry_Sraosha::
+	.incbin "sound/direct_sound_samples/cries/sraosha.bin"
+
+	.align 2
+Cry_Thunderbird::
+	.incbin "sound/direct_sound_samples/cries/thunderbird.bin"
+
+	.align 2
+Cry_Gnome::
+	.incbin "sound/direct_sound_samples/cries/gnome.bin"
+
+	.align 2
+Cry_Barbegazi::
+	.incbin "sound/direct_sound_samples/cries/barbegazi.bin"
+
+	.align 2
+Cry_Thanatos::
+	.incbin "sound/direct_sound_samples/cries/thanatos.bin"
+
+	.align 2
+Cry_Mot::
+	.incbin "sound/direct_sound_samples/cries/mot.bin"
+
+	.align 2
+Cry_Stolas::
+	.incbin "sound/direct_sound_samples/cries/stolas.bin"
+
+	.align 2
+Cry_Andras::
+	.incbin "sound/direct_sound_samples/cries/andras.bin"
+
+	.align 2
+Cry_Amon::
+	.incbin "sound/direct_sound_samples/cries/amon.bin"
+
+	.align 2
+Cry_Yoshitsune::
+	.incbin "sound/direct_sound_samples/cries/Yoshitsune.bin"
+
+	.align 2
+Cry_Obariyon::
+	.incbin "sound/direct_sound_samples/cries/Obariyon.bin"
+
+	.align 2
+Cry_Putz::
+	.incbin "sound/direct_sound_samples/cries/putz.bin"
+
 .endif @ P_CRIES_ENABLED
 
 	.align 2

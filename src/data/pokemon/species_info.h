@@ -307,9 +307,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseHP        = 70,
         .baseAttack    = 50,
         .baseDefense   = 45,
-        .baseSpeed     = 90,
+        .baseSpeed     = 85,
         .baseSpAttack  = 75,
-        .baseSpDefense = 90,
+        .baseSpDefense = 95,
         .types = MON_TYPES(TYPE_GRASS),
         .catchRate = 45,
         .expYield = 144,
@@ -437,7 +437,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .height = 6,
         .weight = 100,
         .description = COMPOUND_STRING(
-            "'Fox' in the Ainu language. In Ainu culture,\n"
+            "“Fox” in the Ainu language. In Ainu culture,\n"
             "it is a divine beast that alerts people to\n"
             "forthcoming disasters by howling loudly\n"
             "from the mountains."),
@@ -469,9 +469,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_KUDA] =
     {
         .baseHP        = 61,
-        .baseAttack    = 55,
+        .baseAttack    = 65,
         .baseDefense   = 50,
-        .baseSpeed     = 98,
+        .baseSpeed     = 88,
         .baseSpAttack  = 96,
         .baseSpDefense = 60,
         .types = MON_TYPES(TYPE_FIRE, TYPE_GHOST),
@@ -524,9 +524,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_CHEFEI] =
     {
         .baseHP        = 70,
-        .baseAttack    = 70,
+        .baseAttack    = 82,
         .baseDefense   = 60,
-        .baseSpeed     = 120,
+        .baseSpeed     = 108,
         .baseSpAttack  = 130,
         .baseSpDefense = 80,
         .types = MON_TYPES(TYPE_FIRE, TYPE_GHOST),
@@ -592,7 +592,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_AMORPHOUS),
-        .abilities = { ABILITY_TORRENT, ABILITY_NONE, ABILITY_MAGIC_BOUNCE },
+        .abilities = { ABILITY_TORRENT, ABILITY_NONE, ABILITY_SUCTION_CUPS },
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Zoa"),
         .cryId = CRY_ZOA,
@@ -647,7 +647,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_AMORPHOUS),
-        .abilities = { ABILITY_TORRENT, ABILITY_NONE, ABILITY_MAGIC_BOUNCE },
+        .abilities = { ABILITY_TORRENT, ABILITY_NONE, ABILITY_SUCTION_CUPS },
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Gogmagog"),
         .cryId = CRY_GOGMAGOG,
@@ -702,7 +702,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_AMORPHOUS),
-        .abilities = { ABILITY_TORRENT, ABILITY_NONE, ABILITY_MAGIC_BOUNCE },
+        .abilities = { ABILITY_TORRENT, ABILITY_NONE, ABILITY_SUCTION_CUPS },
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("Albion"),
         .cryId = CRY_ALBION,
@@ -756,7 +756,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_BALL_FETCH, ABILITY_PICKUP, ABILITY_RUN_AWAY },
+        .abilities = { ABILITY_RUN_AWAY, ABILITY_BALL_FETCH, ABILITY_PICKUP },
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Pascal"),
         .cryId = CRY_PASCAL,
@@ -811,7 +811,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_STRONG_JAW, ABILITY_INTIMIDATE, ABILITY_GUARD_DOG },
+        .abilities = { ABILITY_GUARD_DOG, ABILITY_INTIMIDATE, ABILITY_STRONG_JAW },
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("Orthrus"),
         .cryId = CRY_ORTHRUS,
@@ -866,7 +866,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_STRONG_JAW, ABILITY_INTIMIDATE, ABILITY_GUARD_DOG },
+        .abilities = { ABILITY_GUARD_DOG, ABILITY_INTIMIDATE, ABILITY_STRONG_JAW },
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Cerberus"),
         .cryId = CRY_CERBERUS,
@@ -976,7 +976,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_FLYING),
         .abilities = { ABILITY_WIND_RIDER, ABILITY_KEEN_EYE, ABILITY_GALE_WINGS },
-        .bodyColor = BODY_COLOR_RED,
+        .bodyColor = BODY_COLOR_BLACK,
         .speciesName = _("Karasu Tengu"),
         .cryId = CRY_KARASU_TENGU,
         .natDexNum = NATIONAL_DEX_KARASU_TENGU,
@@ -1039,10 +1039,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .height = 18,
         .weight = 733,
         .description = COMPOUND_STRING(
-            "A tengu that is said to have lived in\n"
+            "A tengu that is said to have lived on\n"
             "Mt. Kurama in Kyoto. The most powerful and\n"
-            "well-known of the tengu, he has the power\n"
-            "to fend off disease and bring good fortune."),
+            "well-known of the tengu, it has the power\n"
+            "to fend off disease & bring good fortune."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -1313,7 +1313,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .height = 9,
         .weight = 300,
         .description = COMPOUND_STRING(
-            "A amoeba-like monster that attacks and\n"
+            "An amoeba-like monster that attacks and\n"
             "eats people. Supposedly, it is actually\n"
             "a demon that failed to take form and now\n"
             "roams in search of Magatsuhi energy."),
@@ -1477,7 +1477,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .weight = 360,
         .description = COMPOUND_STRING(
             "Also known as Angada, he is a monkey\n"
-            "general from the Indian epic 'Ramayana.'\n"
+            "general from the Indian epic “Ramayana.”\n"
             "He is a member of the Varana tribe of\n"
             "monkeys, and a servant of Hanuman."),
         .pokemonScale = 356,
@@ -1589,7 +1589,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .weight = 9999,
         .description = COMPOUND_STRING(
             "The monkey king from the Chinese tale\n"
-            "'Journey to the West.' He was born from\n"
+            "“Journey to the West.” He was born from\n"
             "a stone. He was punished by Buddha before\n"
             "going on a journey towards enlightenment."),
         .pokemonScale = 356,
@@ -1645,7 +1645,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
             "A sentient skull from Dominican folklore.\n"
             "Those who hear its high-pitched laugh are\n"
             "doomed to have a bone chilling death.\n"
-            "Surprisingly, not one for conversation."),
+            "Surprisingly not one for conversation."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -1771,7 +1771,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .palette = gMonPalette_PetitFrost,
         .shinyPalette = gMonShinyPalette_PetitFrost,
         .iconSprite = gMonIcon_PetitFrost,
-        .iconPalIndex = 1,
+        .iconPalIndex = 2,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(-3, 11, SHADOW_SIZE_M)
         FOOTPRINT(PetitFrost)
@@ -1782,12 +1782,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_JACK_FROST] =
     {
-        .baseHP        = 65,
+        .baseHP        = 55,
         .baseAttack    = 70,
-        .baseDefense   = 80,
+        .baseDefense   = 60,
         .baseSpeed     = 80,
         .baseSpAttack  = 70,
-        .baseSpDefense = 80,
+        .baseSpDefense = 60,
         .types = MON_TYPES(TYPE_ICE),
         .catchRate = 45,
         .expYield = 144,
@@ -1827,7 +1827,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .palette = gMonPalette_JackFrost,
         .shinyPalette = gMonShinyPalette_JackFrost,
         .iconSprite = gMonIcon_JackFrost,
-        .iconPalIndex = 1,
+        .iconPalIndex = 2,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(-3, 11, SHADOW_SIZE_M)
         FOOTPRINT(JackFrost)
@@ -2182,7 +2182,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_BUG),
-        .abilities = { ABILITY_ILLUMINATE, ABILITY_COMPOUND_EYES, ABILITY_TINTED_LENS },
+        .abilities = { ABILITY_ILLUMINATE, ABILITY_COMPOUND_EYES, ABILITY_SHIELD_DUST },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Mothman"),
         .cryId = CRY_MOTHMAN,
@@ -2576,7 +2576,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .weight = 1860,
         .description = COMPOUND_STRING(
             "Fabled creature of Greek lore. Its name\n"
-            "means 'bull of Minos.' Originally named\n"
+            "means “bull of Minos.” Originally named\n"
             "Asterius, he grew more and more violent\n"
             "until he was locked away in the Labyrinth."),
         .pokemonScale = 356,
@@ -2610,7 +2610,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseDefense   = 44,
         .baseSpeed     = 104,
         .baseSpAttack  = 114,
-        .baseSpDefense = 94,
+        .baseSpDefense = 84,
         .types = MON_TYPES(TYPE_BUG, TYPE_DARK),
         .catchRate = 45,
         .expYield = 144,
@@ -2661,11 +2661,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_ONYANKOPON] =
     {
         .baseHP        = 50,
-        .baseAttack    = 75,
-        .baseDefense   = 50,
-        .baseSpeed     = 85,
-        .baseSpAttack  = 95,
-        .baseSpDefense = 145,
+        .baseAttack    = 55,
+        .baseDefense   = 85,
+        .baseSpeed     = 65,
+        .baseSpAttack  = 80,
+        .baseSpDefense = 155,
         .types = MON_TYPES(TYPE_FLYING),
         .catchRate = 45,
         .expYield = 144,
@@ -2687,7 +2687,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
             "A sky god of the Ashanti people and other\n"
             "tribes in West Africa. One of the aliases\n"
             "of the supreme god Nyame, said to mean\n"
-            "'the all-knowing and all-seeing.'"),
+            "“the all-knowing and all-seeing.”"),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -2783,7 +2783,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE, EGG_GROUP_FLYING),
-        .abilities = { ABILITY_SERENE_GRACE, ABILITY_PRESSURE, ABILITY_TELEPATHY },
+        .abilities = { ABILITY_SERENE_GRACE, ABILITY_PRESSURE, ABILITY_ANTICIPATION },
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Angel"),
         .cryId = CRY_ANGEL,
@@ -2839,7 +2839,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE, EGG_GROUP_FLYING),
-        .abilities = { ABILITY_SERENE_GRACE, ABILITY_PRESSURE, ABILITY_TELEPATHY },
+        .abilities = { ABILITY_SERENE_GRACE, ABILITY_PRESSURE, ABILITY_ANTICIPATION },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Archangel"),
         .cryId = CRY_ARCHANGEL,
@@ -3668,7 +3668,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .weight = 552,
         .description = COMPOUND_STRING(
             "A low-ranking demon whose name means\n"
-            "'spread out flat.' Opinions vary to his\n"
+            "“spread out flat.” Opinions vary to his\n"
             "master, but he is commonly depicted as\n"
             "a servant of Oriens, Orias, or Ose."),
         .pokemonScale = 356,
@@ -3805,60 +3805,6 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .teachableLearnset = sOniTeachableLearnset,
     },
 
-    [SPECIES_AMDUSIAS] =
-    {
-        .baseHP        = 72,
-        .baseAttack    = 50,
-        .baseDefense   = 63,
-        .baseSpeed     = 80,
-        .baseSpAttack  = 70,
-        .baseSpDefense = 77,
-        .types = MON_TYPES(TYPE_NORMAL, TYPE_ELECTRIC),
-        .catchRate = 45,
-        .expYield = 144,
-        .evYield_Speed = 1,
-        .genderRatio = PERCENT_FEMALE(50.0),
-        .eggCycles = 20,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_MEDIUM_SLOW,
-        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_SOUNDPROOF, ABILITY_VOLT_ABSORB, ABILITY_PUNK_ROCK },
-        .bodyColor = BODY_COLOR_WHITE,
-        .speciesName = _("Amdusias"),
-        .cryId = CRY_AMDUSIAS,
-        .natDexNum = NATIONAL_DEX_AMDUSIAS,
-        .categoryName = _("Musical"),
-        .height = 13,
-        .weight = 500,
-        .description = COMPOUND_STRING(
-            "The 67th demon of the Ars Goetia, who\n"
-            "first appears as a unicorn before taking\n"
-            "human form. Music from unseen instruments\n"
-            "will play to accompany the transformation."),
-        .pokemonScale = 356,
-        .pokemonOffset = 17,
-        .trainerScale = 256,
-        .trainerOffset = 0,
-        .frontPic = gMonFrontPic_Amdusias,
-        .frontPicSize = MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = 3,
-        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
-        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
-        .backPic = gMonBackPic_Amdusias,
-        .backPicSize = MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = 6,
-        //.backAnimId = BACK_ANIM_NONE,
-        .palette = gMonPalette_Amdusias,
-        .shinyPalette = gMonShinyPalette_Amdusias,
-        .iconSprite = gMonIcon_Amdusias,
-        .iconPalIndex = 1,
-        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
-        SHADOW(-3, 11, SHADOW_SIZE_M)
-        FOOTPRINT(Amdusias)
-        .levelUpLearnset = sAmdusiasLevelUpLearnset,
-        .teachableLearnset = sAmdusiasTeachableLearnset,
-    },
-
     [SPECIES_ES] =
     {
         .baseHP        = 65,
@@ -3911,6 +3857,60 @@ const struct SpeciesInfo gSpeciesInfo[] =
         FOOTPRINT(Es)
         .levelUpLearnset = sEsLevelUpLearnset,
         .teachableLearnset = sEsTeachableLearnset,
+    },
+
+    [SPECIES_AMDUSIAS] =
+    {
+        .baseHP        = 72,
+        .baseAttack    = 50,
+        .baseDefense   = 63,
+        .baseSpeed     = 80,
+        .baseSpAttack  = 70,
+        .baseSpDefense = 77,
+        .types = MON_TYPES(TYPE_NORMAL, TYPE_ELECTRIC),
+        .catchRate = 45,
+        .expYield = 144,
+        .evYield_Speed = 1,
+        .genderRatio = PERCENT_FEMALE(50.0),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE),
+        .abilities = { ABILITY_SOUNDPROOF, ABILITY_VOLT_ABSORB, ABILITY_PUNK_ROCK },
+        .bodyColor = BODY_COLOR_WHITE,
+        .speciesName = _("Amdusias"),
+        .cryId = CRY_AMDUSIAS,
+        .natDexNum = NATIONAL_DEX_AMDUSIAS,
+        .categoryName = _("Musical"),
+        .height = 13,
+        .weight = 500,
+        .description = COMPOUND_STRING(
+            "The 67th demon of the Ars Goetia, who\n"
+            "first appears as a unicorn before taking\n"
+            "human form. Music from unseen instruments\n"
+            "will play to accompany the transformation."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Amdusias,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 3,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .backPic = gMonBackPic_Amdusias,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 6,
+        //.backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_Amdusias,
+        .shinyPalette = gMonShinyPalette_Amdusias,
+        .iconSprite = gMonIcon_Amdusias,
+        .iconPalIndex = 1,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
+        SHADOW(-3, 11, SHADOW_SIZE_M)
+        FOOTPRINT(Amdusias)
+        .levelUpLearnset = sAmdusiasLevelUpLearnset,
+        .teachableLearnset = sAmdusiasTeachableLearnset,
     },
 
     [SPECIES_MITAMA] =
@@ -4195,7 +4195,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseSpeed     = 50,
         .baseSpAttack  = 75,
         .baseSpDefense = 50,
-        .types = MON_TYPES(TYPE_POISON),
+        .types = MON_TYPES(TYPE_POISON, TYPE_BUG),
         .catchRate = 45,
         .expYield = 144,
         .evYield_Attack = 1,
@@ -4215,7 +4215,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .weight = 766,
         .description = COMPOUND_STRING(
             "A Zoroastrian daeva whose name means\n"
-            "'Evil Thinking.' It represents sensual\n"
+            "“Evil Thinking.” It represents sensual\n"
             "desire and was sent by Angra Mainyu to\n"
             "seduce the prophet Zoroaster."),
         .pokemonScale = 356,
@@ -4299,10 +4299,121 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .teachableLearnset = sAngraMainyuTeachableLearnset,
     },
 
+    [SPECIES_VOHU_MANAH] =
+    {
+        .baseHP        = 60,
+        .baseAttack    = 40,
+        .baseDefense   = 75,
+        .baseSpeed     = 50,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 75,
+        .types = MON_TYPES(TYPE_BUG, TYPE_PSYCHIC),
+        .catchRate = 45,
+        .expYield = 144,
+        .evYield_Defense = 1,
+        .evYield_SpDefense = 1,
+        .genderRatio = PERCENT_FEMALE(50.0),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_BUG),
+        .abilities = { ABILITY_KEEN_EYE, ABILITY_TELEPATHY, ABILITY_POISON_HEAL },
+        .bodyColor = BODY_COLOR_BLUE,
+        .speciesName = _("Vohu Manah"),
+        .cryId = CRY_VOHU_MANAH,
+        .natDexNum = NATIONAL_DEX_VOHU_MANAH,
+        .categoryName = _("Divine Spark"),
+        .height = 16,
+        .weight = 744,
+        .description = COMPOUND_STRING(
+            "One of the Amesha Spenta, a group of\n"
+            "angels in Zoroastrianism. Its name means\n"
+            "“Good Thought.” It is said to have given\n"
+            "Zoroaster revelations from God."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_VohuManah,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 3,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .backPic = gMonBackPic_VohuManah,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 6,
+        //.backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_VohuManah,
+        .shinyPalette = gMonShinyPalette_VohuManah,
+        .iconSprite = gMonIcon_VohuManah,
+        .iconPalIndex = 1,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
+        SHADOW(-3, 11, SHADOW_SIZE_M)
+        FOOTPRINT(VohuManah)
+        .levelUpLearnset = sVohuManahLevelUpLearnset,
+        .teachableLearnset = sVohuManahTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_SRAOSHA}),
+    },
+
+    [SPECIES_SRAOSHA] =
+    {
+        .baseHP        = 80,
+        .baseAttack    = 70,
+        .baseDefense   = 95,
+        .baseSpeed     = 70,
+        .baseSpAttack  = 80,
+        .baseSpDefense = 95,
+        .types = MON_TYPES(TYPE_BUG, TYPE_PSYCHIC),
+        .catchRate = 45,
+        .expYield = 144,
+        .evYield_Defense = 1,
+        .evYield_SpDefense = 1,
+        .genderRatio = PERCENT_FEMALE(50.0),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_BUG),
+        .abilities = { ABILITY_KEEN_EYE, ABILITY_TELEPATHY, ABILITY_POISON_HEAL },
+        .bodyColor = BODY_COLOR_BLUE,
+        .speciesName = _("Sraosha"),
+        .cryId = CRY_SRAOSHA,
+        .natDexNum = NATIONAL_DEX_SRAOSHA,
+        .categoryName = _("Observance"),
+        .height = 20,
+        .weight = 955,
+        .description = COMPOUND_STRING(
+            "In Zoroastrian lore, Sraosha's duty is\n"
+            "to listen to the cry of humans for\n"
+            "Ahura Mazda. Sraosha is also known to\n"
+            "descend after sunset to vanquish evil."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Sraosha,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 3,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .backPic = gMonBackPic_Sraosha,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 6,
+        //.backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_Sraosha,
+        .shinyPalette = gMonShinyPalette_Sraosha,
+        .iconSprite = gMonIcon_Sraosha,
+        .iconPalIndex = 1,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
+        SHADOW(-3, 11, SHADOW_SIZE_M)
+        FOOTPRINT(Sraosha)
+        .levelUpLearnset = sSraoshaLevelUpLearnset,
+        .teachableLearnset = sSraoshaTeachableLearnset,
+    },
+
     [SPECIES_MADA] =
     {
         .baseHP        = 100,
-        .baseAttack    = 130,
+        .baseAttack    = 120,
         .baseDefense   = 60,
         .baseSpeed     = 50,
         .baseSpAttack  = 80,
@@ -4328,7 +4439,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
             "A giant Hindu monster. Its mouth is so\n"
             "enormous it can swallow the Earth and\n"
             "heavens in one bite. Its name means\n"
-            "'he who intoxicates.'"),
+            "“he who intoxicates.”"),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -4437,7 +4548,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
             "A demigod of Hawaiian lore resembling a pig.\n"
             "He plundered his enemies harvests. He made\n"
             "advances on the fire goddess Pele, to\n"
-            "which she called him a 'son of a pig.'"),
+            "which she called him a “son of a pig.”"),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -4632,8 +4743,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
     {
         .baseHP        = 70,
         .baseAttack    = 50,
-        .baseDefense   = 80,
-        .baseSpeed     = 15,
+        .baseDefense   = 90,
+        .baseSpeed     = 5,
         .baseSpAttack  = 30,
         .baseSpDefense = 40,
         .types = MON_TYPES(TYPE_ROCK),
@@ -4655,7 +4766,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .weight = 255,
         .description = COMPOUND_STRING(
             "A Japanese earth spirit whose name means\n"
-            "'god of the fields.' Though not innately\n"
+            "“god of the fields.” Though not innately\n"
             "evil, its temper may cause it to attack\n"
             "humans from behind a tree or bushes."),
         .pokemonScale = 356,
@@ -4742,9 +4853,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseHP        = 80,
         .baseAttack    = 105,
         .baseDefense   = 60,
-        .baseSpeed     = 80,
-        .baseSpAttack  = 40,
-        .baseSpDefense = 70,
+        .baseSpeed     = 75,
+        .baseSpAttack  = 55,
+        .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_NORMAL,TYPE_FIGHTING),
         .catchRate = 45,
         .expYield = 144,
@@ -4791,6 +4902,61 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .teachableLearnset = sNekoShogunTeachableLearnset,
     },
 
+    [SPECIES_YOSHITSUNE] =
+    {
+        .baseHP        = 70,
+        .baseAttack    = 85,
+        .baseDefense   = 100,
+        .baseSpeed     = 90,
+        .baseSpAttack  = 55,
+        .baseSpDefense = 65,
+        .types = MON_TYPES(TYPE_FIGHTING),
+        .catchRate = 45,
+        .expYield = 144,
+        .evYield_Defense = 1,
+        .evYield_Speed = 1,
+        .genderRatio = MON_MALE,
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
+        .abilities = { ABILITY_MARTIALIZE, ABILITY_NONE, ABILITY_NONE },
+        .bodyColor = BODY_COLOR_RED,
+        .speciesName = _("Yoshitsune"),
+        .cryId = CRY_YOSHITSUNE,
+        .natDexNum = NATIONAL_DEX_YOSHITSUNE,
+        .categoryName = _("General"),
+        .height = 17,
+        .weight = 602,
+        .description = COMPOUND_STRING(
+            "A Japanese general of the Genpei War near\n"
+            "the end of the Heian era. He is said to\n"
+            "have learned combat from Kurama Tengu.\n"
+            "He would later kill himself at Koromogawa."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Yoshitsune,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 3,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .backPic = gMonBackPic_Yoshitsune,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 6,
+        //.backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_Yoshitsune,
+        .shinyPalette = gMonShinyPalette_Yoshitsune,
+        .iconSprite = gMonIcon_Yoshitsune,
+        .iconPalIndex = 1,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
+        SHADOW(-3, 11, SHADOW_SIZE_M)
+        FOOTPRINT(Yoshitsune)
+        .levelUpLearnset = sYoshitsuneLevelUpLearnset,
+        .teachableLearnset = sYoshitsuneTeachableLearnset,
+    },
+
     [SPECIES_THRONE] =
     {
         .baseHP        = 40,
@@ -4818,7 +4984,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .weight = 780,
         .description = COMPOUND_STRING(
             "The third of the nine orders of angels.\n"
-            "Their Hebrew name, Ophan, means 'wheel.'\n"
+            "Their Hebrew name, Ophan, means “wheel.”\n"
             "They are the highest ranking angels with\n"
             "material bodies, and hold the seat of God."),
         .pokemonScale = 356,
@@ -4932,8 +5098,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .description = COMPOUND_STRING(
             "The highest order of angels. Known as the\n"
             "burning ones, they burn with love for God\n"
-            "and remain closest to him. The true majesty\n"
-            "of the Seraphim cannot be conceived by man."),
+            "and remain closest to him. The Seraphim's\n"
+            "true majesty cannot be conceived by man."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -4987,7 +5153,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
             "A war god of ancient Japan, and one of\n"
             "Arahabaki's subordinates. He is said to be\n"
             "the model for the fairy tale hero Momotaro,\n"
-            "and the origin for 'warrior' in Japanese."),
+            "and the origin for “warrior” in Japanese."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -5066,6 +5232,60 @@ const struct SpeciesInfo gSpeciesInfo[] =
         FOOTPRINT(Arahabaki)
         .levelUpLearnset = sArahabakiLevelUpLearnset,
         .teachableLearnset = sArahabakiTeachableLearnset,
+    },
+
+    [SPECIES_THUNDERBIRD] =
+    {
+        .baseHP        = 80,
+        .baseAttack    = 83,
+        .baseDefense   = 60,
+        .baseSpeed     = 76,
+        .baseSpAttack  = 114,
+        .baseSpDefense = 60,
+        .types = MON_TYPES(TYPE_ELECTRIC, TYPE_FLYING),
+        .catchRate = 45,
+        .expYield = 144,
+        .evYield_SpAttack = 2,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
+        .abilities = { ABILITY_STATIC, ABILITY_NONE, ABILITY_WIND_POWER },
+        .bodyColor = BODY_COLOR_GRAY,
+        .speciesName = _("Thunderbird"),
+        .cryId = CRY_THUNDERBIRD,
+        .natDexNum = NATIONAL_DEX_THUNDERBIRD,
+        .categoryName = _("Storm Eagle"),
+        .height = 49,
+        .weight = 1433,
+        .description = COMPOUND_STRING(
+            "A legendary bird found in Native American\n"
+            "lore. It resembles an eagle, and its \n"
+            "wingbeats create mighty thunderclaps. It\n"
+            "can carry an entire lake on its back."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Thunderbird,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 3,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .backPic = gMonBackPic_Thunderbird,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 6,
+        //.backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_Thunderbird,
+        .shinyPalette = gMonShinyPalette_Thunderbird,
+        .iconSprite = gMonIcon_Thunderbird,
+        .iconPalIndex = 1,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
+        SHADOW(-3, 11, SHADOW_SIZE_M)
+        FOOTPRINT(Thunderbird)
+        .levelUpLearnset = sThunderbirdLevelUpLearnset,
+        .teachableLearnset = sThunderbirdTeachableLearnset,
     },
 
     [SPECIES_HARE_OF_INABA] =
@@ -5149,10 +5369,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .height = 18,
         .weight = 33,
         .description = COMPOUND_STRING(
-            "While this demon is named after a Yeti-like\n"
-            "Australian creature, it's closer to a Bunyip.\n"
-            "It's a long, amphibious creature that lives\n"
-            "in lakes and waterholes, and must be feared."),
+            "Although this demon is named after the Yeti\n"
+            "-like Australian creature, it is closer to\n"
+            "a Bunyip. Bunyips are long, amphibious\n"
+            "creatures who live in lakes and waterholes."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -5204,7 +5424,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .weight = 815,
         .description = COMPOUND_STRING(
             "A monster that is half lion and half ant.\n"
-            "It comes from a mistranslation of 'old lion'\n"
+            "Derived from a mistranslation of “old lion”\n"
             "in the Book of Job. Because the lion eats\n"
             "meat and ants eat plants, it will starve."),
         .pokemonScale = 356,
@@ -5257,10 +5477,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .height = 3,
         .weight = 35,
         .description = COMPOUND_STRING(
-            "A god of the house and silkworms worshipped\n"
-            "in northeast Japan. The idol is usually made\n"
-            "of mulberry bark or bamboo, wearing clothing\n"
-            "called osendaku and have carved faces."),
+            "God of the house and silkworms worshipped\n"
+            "in northeast Japan. Its idol is usually made\n"
+            "of mulberry bark or bamboo, wearing clothes\n"
+            "called osendaku, and have carved faces."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -5313,8 +5533,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .weight = 163,
         .description = COMPOUND_STRING(
             "A goddess of grasses in Japanese myth.\n"
-            "The name 'Kaya' refers to the grass used in\n"
-            "traditional grass-roof houses, highlighting\n"
+            "The name “Kaya” refers to grass used in\n"
+            "traditional grass-roof houses, signifying\n"
             "its importance to people in ancient Japan."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
@@ -5368,10 +5588,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .height = 16,
         .weight = 495,
         .description = COMPOUND_STRING(
-            "Konohana Sakuya, one of the most beautiful\n"
-            "of Japan's myriad gods, and associated with\n"
+            "Konohana Sakuya: of the most beautiful\n"
+            "of Japan's myriad gods, associated with\n"
             "cherry blossoms. She proved her child's\n"
-            "divinity by giving birth in a burning home."),
+            "divinity by giving birth in a burning house."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -5399,11 +5619,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_OUYAMATSUMI] =
     {
         .baseHP        = 150,
-        .baseAttack    = 100,
+        .baseAttack    = 105,
         .baseDefense   = 100,
         .baseSpeed     = 50,
-        .baseSpAttack  = 60,
-        .baseSpDefense = 40,
+        .baseSpAttack  = 65,
+        .baseSpDefense = 30,
         .types = MON_TYPES(TYPE_GROUND, TYPE_ROCK),
         .catchRate = 45,
         .expYield = 144,
@@ -5510,8 +5730,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseHP        = 100,
         .baseAttack    = 115,
         .baseDefense   = 60,
-        .baseSpeed     = 95,
-        .baseSpAttack  = 45,
+        .baseSpeed     = 85,
+        .baseSpAttack  = 55,
         .baseSpDefense = 75,
         .types = MON_TYPES(TYPE_GROUND, TYPE_FLYING),
         .catchRate = 45,
@@ -5522,7 +5742,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_GRASS, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_SAND_FORCE, ABILITY_WIND_RIDER, ABILITY_RECEIVER },
+        .abilities = { ABILITY_SAND_FORCE, ABILITY_SHED_SKIN, ABILITY_RECEIVER },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Gucumatz"),
         .cryId = CRY_GUCUMATZ,
@@ -5563,9 +5783,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
     {
         .baseHP        = 110,
         .baseAttack    = 105,
-        .baseDefense   = 60,
-        .baseSpeed     = 65,
-        .baseSpAttack  = 70,
+        .baseDefense   = 70,
+        .baseSpeed     = 45,
+        .baseSpAttack  = 80,
         .baseSpDefense = 60,
         .types = MON_TYPES(TYPE_ICE),
         .catchRate = 45,
@@ -5576,7 +5796,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER),
-        .abilities = { ABILITY_GLUTTONY, ABILITY_SLUSH_RUSH, ABILITY_MOXIE },
+        .abilities = { ABILITY_GLUTTONY, ABILITY_ICE_BODY, ABILITY_MOXIE },
         .bodyColor = BODY_COLOR_BLACK,
         .speciesName = _("Wendigo"),
         .cryId = CRY_WENDIGO,
@@ -5619,8 +5839,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseAttack    = 30,
         .baseDefense   = 45,
         .baseSpeed     = 90,
-        .baseSpAttack  = 55,
-        .baseSpDefense = 80,
+        .baseSpAttack  = 80,
+        .baseSpDefense = 55,
         .types = MON_TYPES(TYPE_DARK),
         .catchRate = 45,
         .expYield = 144,
@@ -5862,7 +6082,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .description = COMPOUND_STRING(
             "A transformed human killed by plague\n"
             "and famine, whose body was not buried.\n"
-            "They cry 'Itsumade?' ('How long?'),\n"
+            "They cry “Itsumade?” (“How long?”),\n"
             "asking for a proper burial."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
@@ -5906,7 +6126,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FLYING),
-        .abilities = { ABILITY_OVERCOAT, ABILITY_MOXIE, ABILITY_WEAK_ARMOR },
+        .abilities = { ABILITY_OVERCOAT, ABILITY_MOXIE, ABILITY_BATTLE_ARMOR },
         .bodyColor = BODY_COLOR_BLACK,
         .speciesName = _("Gurulu"),
         .cryId = CRY_GURULU,
@@ -5960,7 +6180,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY, EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_RIVALRY, ABILITY_CURIOUS_MEDICINE, ABILITY_CLEAR_BODY },
+        .abilities = { ABILITY_RIVALRY, ABILITY_NONE, ABILITY_CLEAR_BODY },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Oberon"),
         .cryId = CRY_OBERON,
@@ -6014,7 +6234,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY, EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_CUTE_CHARM, ABILITY_SHIELD_DUST, ABILITY_FOREWARN },
+        .abilities = { ABILITY_CUTE_CHARM, ABILITY_NONE, ABILITY_FOREWARN },
         .bodyColor = BODY_COLOR_PINK,
         .speciesName = _("Titania"),
         .cryId = CRY_TITANIA,
@@ -6026,7 +6246,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
             "The queen of faeries and Oberon's wife.\n"
             "She's based on the Roman goddess Diana and\n"
             "was later seen as a fairy. Famously seen in\n"
-            "Shakespeare's 'A Midsummer Night's Dream.'"),
+            "Shakespeare's “A Midsummer Night's Dream.”"),
         .pokemonScale = 356,
         .pokemonOffset = 15,
         .trainerScale = 1140,
@@ -6163,11 +6383,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_TEZCATLIPOCA] =
     {
         .baseHP        = 100,
-        .baseAttack    = 106,
-        .baseDefense   = 68,
-        .baseSpeed     = 91,
+        .baseAttack    = 95,
+        .baseDefense   = 78,
+        .baseSpeed     = 81,
         .baseSpAttack  = 80,
-        .baseSpDefense = 54,
+        .baseSpDefense = 65,
         .types = MON_TYPES(TYPE_GROUND, TYPE_GHOST),
         .catchRate = 45,
         .expYield = 144,
@@ -6296,9 +6516,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .weight = 513,
         .description = COMPOUND_STRING(
             "The god of night, evil and death in Slavic\n"
-            "lore. His name means 'black god' and he lives\n"
-            "below the earth. The curse, 'May the black\n"
-            "god end you,' is used in Ukraine to this day."),
+            "lore. His name means black god, and he lives\n"
+            "below the earth. The curse, “May the black\n"
+            "god end you,” is used in Ukraine even now."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -6381,8 +6601,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_OMETEOTL] =
     {
         .baseHP        = 100,
-        .baseAttack    = 80,
-        .baseDefense   = 75,
+        .baseAttack    = 90,
+        .baseDefense   = 65,
         .baseSpeed     = 95,
         .baseSpAttack  = 97,
         .baseSpDefense = 53,
@@ -6559,7 +6779,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_UNNERVE, ABILITY_OVERCOAT, ABILITY_BATTLE_ARMOR },
+        .abilities = { ABILITY_UNNERVE, ABILITY_OVERCOAT, ABILITY_POISON_POINT },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Vasuki"),
         .cryId = CRY_VASUKI,
@@ -6598,12 +6818,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_NIGHT_STALKER] =
     {
-        .baseHP        = 40,
-        .baseAttack    = 35,
+        .baseHP        = 45,
+        .baseAttack    = 65,
         .baseDefense   = 60,
         .baseSpeed     = 95,
-        .baseSpAttack  = 45,
-        .baseSpDefense = 65,
+        .baseSpAttack  = 30,
+        .baseSpDefense = 40,
         .types = MON_TYPES(TYPE_POISON, TYPE_GHOST),
         .catchRate = 45,
         .expYield = 144,
@@ -6653,12 +6873,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_MAD_GASSER] =
     {
-        .baseHP        = 65,
-        .baseAttack    = 60,
+        .baseHP        = 70,
+        .baseAttack    = 65,
         .baseDefense   = 85,
         .baseSpeed     = 120,
-        .baseSpAttack  = 70,
-        .baseSpDefense = 90,
+        .baseSpAttack  = 90,
+        .baseSpDefense = 60,
         .types = MON_TYPES(TYPE_POISON, TYPE_GHOST),
         .catchRate = 45,
         .expYield = 144,
@@ -6679,7 +6899,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .description = COMPOUND_STRING(
             "A mysterious figure who allegedly attacked\n"
             "a small town in Illinois. The poisonous\n"
-            "gas he uses has a sweet smell, but causes\n"
+            "gas they use has a sweet smell, but causes\n"
             "intense headaches and vomitting if inhaled."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
@@ -6877,9 +7097,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_HELL_BIKER] =
     {
-        .baseHP        = 95,
-        .baseAttack    = 110,
-        .baseDefense   = 65,
+        .baseHP        = 65,
+        .baseAttack    = 95,
+        .baseDefense   = 110,
         .baseSpeed     = 130,
         .baseSpAttack  = 65,
         .baseSpDefense = 60,
@@ -7012,10 +7232,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .height = 24,
         .weight = 1950,
         .description = COMPOUND_STRING(
-            "The fiend known as the 'Whore of Babylon.'\n"
+            "The fiend known as the “Whore of Babylon.”\n"
             "She rides a beast with seven heads and ten\n"
-            "horns, carrying a golden cup of the filth\n"
-            "of her acts and abominations."),
+            "horns, carrying a golden cup containing\n"
+            "abominations and the filth of her acts."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -7038,6 +7258,116 @@ const struct SpeciesInfo gSpeciesInfo[] =
         FOOTPRINT(MotherHarlot)
         .levelUpLearnset = sMotherHarlotLevelUpLearnset,
         .teachableLearnset = sMotherHarlotTeachableLearnset,
+    },
+
+    [SPECIES_GNOME] =
+    {
+        .baseHP        = 40,
+        .baseAttack    = 51,
+        .baseDefense   = 61,
+        .baseSpeed     = 72,
+        .baseSpAttack  = 31,
+        .baseSpDefense = 30,
+        .types = MON_TYPES(TYPE_ICE, TYPE_ROCK),
+        .catchRate = 45,
+        .expYield = 144,
+        .evYield_Speed = 1,
+        .genderRatio = PERCENT_FEMALE(50.0),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_MONSTER),
+        .abilities = { ABILITY_SLUSH_RUSH, ABILITY_ROCK_HEAD, ABILITY_QUICK_FEET },
+        .bodyColor = BODY_COLOR_GREEN,
+        .speciesName = _("Gnome"),
+        .cryId = CRY_GNOME,
+        .natDexNum = NATIONAL_DEX_GNOME,
+        .categoryName = _("Earthen"),
+        .height = 10,
+        .weight = 170,
+        .description = COMPOUND_STRING(
+            "One of the four elemental spirits of\n"
+            "Paracelsus, it is the spirit of earth.\n"
+            "They are similar to Dwarves and Knockers,\n"
+            "living underground to protect treasure."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Gnome,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 3,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .backPic = gMonBackPic_Gnome,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 6,
+        //.backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_Gnome,
+        .shinyPalette = gMonShinyPalette_Gnome,
+        .iconSprite = gMonIcon_Gnome,
+        .iconPalIndex = 1,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
+        SHADOW(-3, 11, SHADOW_SIZE_M)
+        FOOTPRINT(Gnome)
+        .levelUpLearnset = sGnomeLevelUpLearnset,
+        .teachableLearnset = sGnomeTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 28, SPECIES_BARBEGAZI}),
+    },
+
+    [SPECIES_BARBEGAZI] =
+    {
+        .baseHP        = 60,
+        .baseAttack    = 121,
+        .baseDefense   = 66,
+        .baseSpeed     = 72,
+        .baseSpAttack  = 61,
+        .baseSpDefense = 65,
+        .types = MON_TYPES(TYPE_ICE, TYPE_ROCK),
+        .catchRate = 45,
+        .expYield = 144,
+        .evYield_Attack = 2,
+        .evYield_Speed = 1,
+        .genderRatio = PERCENT_FEMALE(50.0),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_MONSTER),
+        .abilities = { ABILITY_SLUSH_RUSH, ABILITY_ROCK_HEAD, ABILITY_QUICK_FEET },
+        .bodyColor = BODY_COLOR_GREEN,
+        .speciesName = _("Barbegazi"),
+        .cryId = CRY_BARBEGAZI,
+        .natDexNum = NATIONAL_DEX_BARBEGAZI,
+        .categoryName = _("Frozen Beard"),
+        .height = 13,
+        .weight = 430,
+        .description = COMPOUND_STRING(
+            "A type of snowman that lives in the Alps.\n"
+            "They are known to move extremely quickly\n"
+            "in snow, skiing down the mountains with\n"
+            "their feet. They warn humans of avalanches."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Barbegazi,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 3,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .backPic = gMonBackPic_Barbegazi,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 6,
+        //.backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_Barbegazi,
+        .shinyPalette = gMonShinyPalette_Barbegazi,
+        .iconSprite = gMonIcon_Barbegazi,
+        .iconPalIndex = 1,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
+        SHADOW(-3, 11, SHADOW_SIZE_M)
+        FOOTPRINT(Barbegazi)
+        .levelUpLearnset = sBarbegaziLevelUpLearnset,
+        .teachableLearnset = sBarbegaziTeachableLearnset,
     },
 
     [SPECIES_ZEED] =
@@ -7069,7 +7399,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
             "A man-made demon created using a lump of\n"
             "earth that holds the breath of life: Dolly\n"
             "Kadmon. It is still developing, being able\n"
-            "to take the form of whatever demon it sees."),
+            "to take the form of any demon it sees."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -7092,6 +7422,115 @@ const struct SpeciesInfo gSpeciesInfo[] =
         FOOTPRINT(Zeed)
         .levelUpLearnset = sZeedLevelUpLearnset,
         .teachableLearnset = sZeedTeachableLearnset,
+    },
+
+    [SPECIES_OBARIYON] =
+    {
+        .baseHP        = 50,
+        .baseAttack    = 50,
+        .baseDefense   = 60,
+        .baseSpeed     = 40,
+        .baseSpAttack  = 30,
+        .baseSpDefense = 40,
+        .types = MON_TYPES(TYPE_NORMAL, TYPE_GRASS),
+        .catchRate = 45,
+        .expYield = 144,
+        .evYield_Defense = 1,
+        .genderRatio = PERCENT_FEMALE(50.0),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
+        .abilities = { ABILITY_PICKUP, ABILITY_SAP_SIPPER, ABILITY_SYMBIOSIS },
+        .bodyColor = BODY_COLOR_BROWN,
+        .speciesName = _("Obariyon"),
+        .cryId = CRY_OBARIYON,
+        .natDexNum = NATIONAL_DEX_OBARIYON,
+        .categoryName = _("Piggyback"),
+        .height = 8,
+        .weight = 2000,
+        .description = COMPOUND_STRING(
+            "A Japanese “piggyback monster” who jumps\n"
+            "on people's backs as they walk along\n"
+            "grassy paths. It gets heavier over time,\n"
+            "but turns into gold if you bring it home."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Obariyon,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 3,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .backPic = gMonBackPic_Obariyon,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 6,
+        //.backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_Obariyon,
+        .shinyPalette = gMonShinyPalette_Obariyon,
+        .iconSprite = gMonIcon_Obariyon,
+        .iconPalIndex = 1,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
+        SHADOW(-3, 11, SHADOW_SIZE_M)
+        FOOTPRINT(Obariyon)
+        .levelUpLearnset = sObariyonLevelUpLearnset,
+        .teachableLearnset = sObariyonTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 31, SPECIES_PUTZ}),
+    },
+
+    [SPECIES_PUTZ] =
+    {
+        .baseHP        = 70,
+        .baseAttack    = 93,
+        .baseDefense   = 100,
+        .baseSpeed     = 40,
+        .baseSpAttack  = 77,
+        .baseSpDefense = 80,
+        .types = MON_TYPES(TYPE_NORMAL, TYPE_GRASS),
+        .catchRate = 45,
+        .expYield = 144,
+        .evYield_Defense = 2,
+        .genderRatio = PERCENT_FEMALE(50.0),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
+        .abilities = { ABILITY_PICKUP, ABILITY_SAP_SIPPER, ABILITY_BULLETPROOF },
+        .bodyColor = BODY_COLOR_BROWN,
+        .speciesName = _("Putz"),
+        .cryId = CRY_PUTZ,
+        .natDexNum = NATIONAL_DEX_PUTZ,
+        .categoryName = _("Woodland"),
+        .height = 9,
+        .weight = 237,
+        .description = COMPOUND_STRING(
+            "A fairy from the forests of Austria. It\n"
+            "tells lumberjacks which trees to cut.\n"
+            "If you cut down the right tree, you will\n"
+            "receive gold. You die if you disobey."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Putz,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 3,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .backPic = gMonBackPic_Putz,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 6,
+        //.backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_Putz,
+        .shinyPalette = gMonShinyPalette_Putz,
+        .iconSprite = gMonIcon_Putz,
+        .iconPalIndex = 1,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
+        SHADOW(-3, 11, SHADOW_SIZE_M)
+        FOOTPRINT(Putz)
+        .levelUpLearnset = sPutzLevelUpLearnset,
+        .teachableLearnset = sPutzTeachableLearnset,
     },
 
     [SPECIES_THOR] =
@@ -7123,7 +7562,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
             "The Norse god of thunder. He uses Mjolnir,\n"
             "a hammer that returns itself after being\n"
             "thrown. The World Serpent Jormungandr and\n"
-            "Thor will kill eachother at Ragnarok."),
+            "Thor will kill each other at Ragnarok."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -7223,7 +7662,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_ICE_BODY, ABILITY_PICKPOCKET, ABILITY_PRANKSTER },
+        .abilities = { ABILITY_FRISK, ABILITY_PICKPOCKET, ABILITY_PRANKSTER },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Loki"),
         .cryId = CRY_LOKI,
@@ -7288,7 +7727,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .description = COMPOUND_STRING(
             "The queen of the netherworld in Norse lore.\n"
             "It is said her name is where the English\n"
-            "term 'Hell' originates. She is also the\n"
+            "term “Hell” originates. She is also the\n"
             "daughter of Loki and sister of Fenrir."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
@@ -7426,16 +7865,16 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_DAGDA] =
     {
-        .baseHP        = 87,
-        .baseAttack    = 105,
-        .baseDefense   = 110,
+        .baseHP        = 92,
+        .baseAttack    = 110,
+        .baseDefense   = 105,
         .baseSpeed     = 73,
         .baseSpAttack  = 80,
-        .baseSpDefense = 45,
+        .baseSpDefense = 55,
         .types = MON_TYPES(TYPE_FIGHTING, TYPE_GRASS),
         .catchRate = 45,
         .expYield = 144,
-        .evYield_Attack = 1,
+        .evYield_Attack = 2,
         .evYield_Defense = 2,
         .genderRatio = MON_MALE,
         .eggCycles = 20,
@@ -7592,11 +8031,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_FORNEUS] =
     {
         .baseHP        = 110,
-        .baseAttack    = 80,
+        .baseAttack    = 100,
         .baseDefense   = 70,
         .baseSpeed     = 50,
         .baseSpAttack  = 75,
-        .baseSpDefense = 100,
+        .baseSpDefense = 80,
         .types = MON_TYPES(TYPE_WATER, TYPE_FLYING),
         .catchRate = 45,
         .expYield = 144,
@@ -7661,7 +8100,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_2, EGG_GROUP_WATER_3),
-        .abilities = { ABILITY_MIMICRY, ABILITY_COLOR_CHANGE, ABILITY_PLUS },
+        .abilities = { ABILITY_MIMICRY, ABILITY_LEVITATE, ABILITY_PLUS },
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("Decarabia"),
         .cryId = CRY_DECARABIA,
@@ -7727,7 +8166,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
             "A brave young man in Celtic myth.\n"
             "After defeating a fierce guard dog,\n"
             "he volunteered to take its place,\n"
-            "earning the nickname 'Chulainn's Hound.'"),
+            "earning the nickname “Chulainn's Hound.”"),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -7888,7 +8327,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .natDexNum = NATIONAL_DEX_GIRIMEKHALA,
         .categoryName = _("Evil Steed"),
         .height = 25,
-        .weight = 3200,
+        .weight = 3800,
         .description = COMPOUND_STRING(
             "A giant elephant monster of Sri Lankan\n"
             "lore. It is typically portrayed as being\n"
@@ -7918,6 +8357,115 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .teachableLearnset = sGirimekhalaTeachableLearnset,
     },
 
+    [SPECIES_THANATOS] =
+    {
+        .baseHP        = 38,
+        .baseAttack    = 55,
+        .baseDefense   = 85,
+        .baseSpeed     = 30,
+        .baseSpAttack  = 50,
+        .baseSpDefense = 65,
+        .types = MON_TYPES(TYPE_GHOST),
+        .catchRate = 45,
+        .expYield = 144,
+        .evYield_Defense = 1,
+        .genderRatio = PERCENT_FEMALE(50.0),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS, EGG_GROUP_MINERAL),
+        .abilities = { ABILITY_PRESSURE, ABILITY_NONE, ABILITY_SNIPER },
+        .bodyColor = BODY_COLOR_GREEN,
+        .speciesName = _("Thanatos"),
+        .cryId = CRY_THANATOS,
+        .natDexNum = NATIONAL_DEX_THANATOS,
+        .categoryName = _("Death God"),
+        .height = 14,
+        .weight = 584,
+        .description = COMPOUND_STRING(
+            "The god of death in Greek mythology.\n"
+            "He is the son of the night goddess Nyx,\n"
+            "and the brother of the sleep god Hypnos.\n"
+            "He walks among men, clothed in black."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Thanatos,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 3,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .backPic = gMonBackPic_Thanatos,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 6,
+        //.backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_Thanatos,
+        .shinyPalette = gMonShinyPalette_Thanatos,
+        .iconSprite = gMonIcon_Thanatos,
+        .iconPalIndex = 1,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
+        SHADOW(-3, 11, SHADOW_SIZE_M)
+        FOOTPRINT(Thanatos)
+        .levelUpLearnset = sThanatosLevelUpLearnset,
+        .teachableLearnset = sThanatosTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 44, SPECIES_MOT}),
+    },
+
+    [SPECIES_MOT] =
+    {
+        .baseHP        = 58,
+        .baseAttack    = 95,
+        .baseDefense   = 145,
+        .baseSpeed     = 30,
+        .baseSpAttack  = 70,
+        .baseSpDefense = 105,
+        .types = MON_TYPES(TYPE_GHOST),
+        .catchRate = 45,
+        .expYield = 144,
+        .evYield_Defense = 2,
+        .genderRatio = PERCENT_FEMALE(50.0),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS, EGG_GROUP_MINERAL),
+        .abilities = { ABILITY_PRESSURE, ABILITY_NONE, ABILITY_SNIPER },
+        .bodyColor = BODY_COLOR_YELLOW,
+        .speciesName = _("Mot"),
+        .cryId = CRY_MOT,
+        .natDexNum = NATIONAL_DEX_MOT,
+        .categoryName = _("Death God"),
+        .height = 22,
+        .weight = 1065,
+        .description = COMPOUND_STRING(
+            "The Canaanite god of death. Every year\n"
+            "he attempts to kill Baal, the god of\n"
+            "fertility, only to see him raised from\n"
+            "the dead with the help of Anat."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Mot,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 3,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .backPic = gMonBackPic_Mot,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 6,
+        //.backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_Mot,
+        .shinyPalette = gMonShinyPalette_Mot,
+        .iconSprite = gMonIcon_Mot,
+        .iconPalIndex = 1,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
+        SHADOW(-3, 11, SHADOW_SIZE_M)
+        FOOTPRINT(Mot)
+        .levelUpLearnset = sMotLevelUpLearnset,
+        .teachableLearnset = sMotTeachableLearnset,
+    },
+
     [SPECIES_THOTH] =
     {
         .baseHP        = 50,
@@ -7935,7 +8483,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_INNER_FOCUS, ABILITY_NONE, ABILITY_CLEAR_BODY },
+        .abilities = { ABILITY_INNER_FOCUS, ABILITY_MAGIC_BOUNCE, ABILITY_CLEAR_BODY },
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Thoth"),
         .cryId = CRY_THOTH,
@@ -7990,7 +8538,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_SHEER_FORCE, ABILITY_NONE, ABILITY_ZEN_MODE },
+        .abilities = { ABILITY_SHEER_FORCE, ABILITY_MAGIC_BOUNCE, ABILITY_ZEN_MODE },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Khonsu"),
         .cryId = CRY_KHONSU,
@@ -8172,7 +8720,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
             "In Oceanian folklore, it is a giant\n"
             "copper python. A being that transcends\n"
             "good and evil, it governs the weather.\n"
-            "Also known as the 'Rainbow Serpent.'"),
+            "Also known as the “Rainbow Serpent.”"),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -8195,6 +8743,170 @@ const struct SpeciesInfo gSpeciesInfo[] =
         FOOTPRINT(Yurlungur)
         .levelUpLearnset = sYurlungurLevelUpLearnset,
         .teachableLearnset = sYurlungurTeachableLearnset,
+    },
+
+    [SPECIES_STOLAS] =
+    {
+        .baseHP        = 37,
+        .baseAttack    = 61,
+        .baseDefense   = 30,
+        .baseSpeed     = 72,
+        .baseSpAttack  = 40,
+        .baseSpDefense = 30,
+        .types = MON_TYPES(TYPE_DARK),
+        .catchRate = 45,
+        .expYield = 144,
+        .evYield_Attack = 1,
+        .genderRatio = MON_MALE,
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_FLYING),
+        .abilities = { ABILITY_EARLY_BIRD, ABILITY_NONE, ABILITY_NONE },
+        .bodyColor = BODY_COLOR_BLUE,
+        .speciesName = _("Stolas"),
+        .cryId = CRY_STOLAS,
+        .natDexNum = NATIONAL_DEX_STOLAS,
+        .categoryName = _("Night Owl"),
+        .height = 11,
+        .weight = 242,
+        .description = COMPOUND_STRING(
+            "The 36th demon of the Ars Goetia. He is\n"
+            "depicted as a crowned owl with long legs.\n"
+            "He commands 26 legions of demons, teaches\n"
+            "astronomy and has prophetic knowledge."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Stolas,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 3,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .backPic = gMonBackPic_Stolas,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 6,
+        //.backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_Stolas,
+        .shinyPalette = gMonShinyPalette_Stolas,
+        .iconSprite = gMonIcon_Stolas,
+        .iconPalIndex = 1,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
+        SHADOW(-3, 11, SHADOW_SIZE_M)
+        FOOTPRINT(Stolas)
+        .levelUpLearnset = sStolasLevelUpLearnset,
+        .teachableLearnset = sStolasTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_ANDRAS}),
+    },
+
+    [SPECIES_ANDRAS] =
+    {
+        .baseHP        = 67,
+        .baseAttack    = 91,
+        .baseDefense   = 60,
+        .baseSpeed     = 82,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 60,
+        .types = MON_TYPES(TYPE_DARK),
+        .catchRate = 45,
+        .expYield = 144,
+        .evYield_Attack = 2,
+        .genderRatio = MON_MALE,
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_FLYING),
+        .abilities = { ABILITY_EARLY_BIRD, ABILITY_NONE, ABILITY_NONE },
+        .bodyColor = BODY_COLOR_RED,
+        .speciesName = _("Andras"),
+        .cryId = CRY_ANDRAS,
+        .natDexNum = NATIONAL_DEX_ANDRAS,
+        .categoryName = _("Night Owl"),
+        .height = 18,
+        .weight = 852,
+        .description = COMPOUND_STRING(
+            "The 63rd demon of the Ars Goetia.\n"
+            "He appears where there is battle to\n"
+            "stoke hatred within soldiers. He helps\n"
+            "defeat enemies of those who summon him."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Andras,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 3,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .backPic = gMonBackPic_Andras,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 6,
+        //.backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_Andras,
+        .shinyPalette = gMonShinyPalette_Andras,
+        .iconSprite = gMonIcon_Andras,
+        .iconPalIndex = 1,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
+        SHADOW(-3, 11, SHADOW_SIZE_M)
+        FOOTPRINT(Andras)
+        .levelUpLearnset = sAndrasLevelUpLearnset,
+        .teachableLearnset = sAndrasTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 55, SPECIES_AMON}),
+    },
+
+    [SPECIES_AMON] =
+    {
+        .baseHP        = 97,
+        .baseAttack    = 141,
+        .baseDefense   = 80,
+        .baseSpeed     = 102,
+        .baseSpAttack  = 100,
+        .baseSpDefense = 80,
+        .types = MON_TYPES(TYPE_DARK, TYPE_FIRE),
+        .catchRate = 45,
+        .expYield = 144,
+        .evYield_Attack = 3,
+        .genderRatio = MON_MALE,
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_FLYING),
+        .abilities = { ABILITY_FLAME_BODY, ABILITY_NONE, ABILITY_NONE },
+        .bodyColor = BODY_COLOR_RED,
+        .speciesName = _("Amon"),
+        .cryId = CRY_AMON,
+        .natDexNum = NATIONAL_DEX_AMON,
+        .categoryName = _("Megido Flame"),
+        .height = 31,
+        .weight = 2054,
+        .description = COMPOUND_STRING(
+            "The 7th demon of the Ars Goetia. Amon\n"
+            "is depicted in many forms, often with\n"
+            "an owl's head. Loyal to his summoner,\n"
+            "he bathes the battlefield in his flames."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Amon,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 3,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .backPic = gMonBackPic_Amon,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 6,
+        //.backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_Amon,
+        .shinyPalette = gMonShinyPalette_Amon,
+        .iconSprite = gMonIcon_Amon,
+        .iconPalIndex = 1,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
+        SHADOW(-3, 11, SHADOW_SIZE_M)
+        FOOTPRINT(Amon)
+        .levelUpLearnset = sAmonLevelUpLearnset,
+        .teachableLearnset = sAmonTeachableLearnset,
     },
 
     [SPECIES_MASTEMA] =
@@ -8274,7 +8986,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .speciesName = _("Baihu"),
         .cryId = CRY_BAIHU,
         .natDexNum = NATIONAL_DEX_BAIHU,
-        .categoryName = _("Gaurdian"),
+        .categoryName = _("Guardian"),
         .height = 21,
         .weight = 2300,
         .description = COMPOUND_STRING(
@@ -8330,7 +9042,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .speciesName = _("Xuanwu"),
         .cryId = CRY_XUANWU,
         .natDexNum = NATIONAL_DEX_XUANWU,
-        .categoryName = _("Gaurdian"),
+        .categoryName = _("Guardian"),
         .height = 16,
         .weight = 1590,
         .description = COMPOUND_STRING(
@@ -8386,7 +9098,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .speciesName = _("Qing Long"),
         .cryId = CRY_QING_LONG,
         .natDexNum = NATIONAL_DEX_QING_LONG,
-        .categoryName = _("Gaurdian"),
+        .categoryName = _("Guardian"),
         .height = 70,
         .weight = 2065,
         .description = COMPOUND_STRING(
@@ -8442,7 +9154,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .speciesName = _("Zhuque"),
         .cryId = CRY_ZHUQUE,
         .natDexNum = NATIONAL_DEX_ZHUQUE,
-        .categoryName = _("Gaurdian"),
+        .categoryName = _("Guardian"),
         .height = 20,
         .weight = 700,
         .description = COMPOUND_STRING(
@@ -8541,8 +9253,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseAttack    = 100,
         .baseDefense   = 105,
         .baseSpeed     = 70,
-        .baseSpAttack  = 115,
-        .baseSpDefense = 90,
+        .baseSpAttack  = 125,
+        .baseSpDefense = 80,
         .types = MON_TYPES(TYPE_DARK, TYPE_BUG),
         .catchRate = 45,
         .expYield = 144,
@@ -8595,12 +9307,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_METATRON] =
     {
-        .baseHP        = 70,
-        .baseAttack    = 115,
-        .baseDefense   = 90,
-        .baseSpeed     = 105,
+        .baseHP        = 120,
+        .baseAttack    = 125,
+        .baseDefense   = 80,
+        .baseSpeed     = 70,
         .baseSpAttack  = 100,
-        .baseSpDefense = 120,
+        .baseSpDefense = 105,
         .types = MON_TYPES(TYPE_STEEL, TYPE_FIRE),
         .catchRate = 45,
         .expYield = 144,
@@ -8622,8 +9334,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .description = COMPOUND_STRING(
             "The greatest and most mysterious of the\n"
             "angels. He has many names, like the Voice\n"
-            "of God and Angel of Contracts. He maintains\n"
-            "the world, but can be quite merciless."),
+            "of God and Angel of Contracts. Though he\n"
+            "maintains the world, he can be merciless."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -8706,6 +9418,65 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
         .levelUpLearnset = sAmanozakoLevelUpLearnset,
         .teachableLearnset = sAmanozakoTeachableLearnset,
+    },
+
+    [SPECIES_SHIVA] =
+    {
+        .baseHP        = 154,
+        .baseAttack    = 80,
+        .baseDefense   = 127,
+        .baseSpeed     = 94,
+        .baseSpAttack  = 140,
+        .baseSpDefense = 125,
+        .types = MON_TYPES(TYPE_FIRE, TYPE_ELECTRIC),
+        .catchRate = 45,
+        .expYield = 144,
+        .evYield_Attack = 3,
+        .evYield_SpAttack = 3,
+        .evYield_Speed = 3,
+        .genderRatio = MON_MALE,
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
+        .abilities = { ABILITY_DANCER, ABILITY_NONE, ABILITY_PURE_POWER },
+        .bodyColor = BODY_COLOR_BLUE,
+        .speciesName = _("Shiva"),
+        .cryId = CRY_SHIVA,
+        .natDexNum = NATIONAL_DEX_SHIVA,
+        .categoryName = _("Destruction"),
+        .height = 26,
+        .weight = 2400,
+        .description = COMPOUND_STRING(
+            "The Hindu destroyer of the world and one\n"
+            "of the Trimurti. He is the most worshipped\n"
+            "Hindu god alongside Vishnu. He purifies the\n"
+            "world with destruction so it can be reborn."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Shiva,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 3,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .backPic = gMonBackPic_Shiva,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 6,
+        //.backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_Shiva,
+        .shinyPalette = gMonShinyPalette_Shiva,
+        .iconSprite = gMonIcon_Shiva,
+        .iconPalIndex = 1,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
+        SHADOW(-3, 11, SHADOW_SIZE_M)
+        FOOTPRINT(Shiva)
+        .isMythical = TRUE,
+        .isFrontierBanned = TRUE,
+        .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
+        .levelUpLearnset = sShivaLevelUpLearnset,
+        .teachableLearnset = sShivaTeachableLearnset,
     },
 
     [SPECIES_DANTE] =
@@ -8826,64 +9597,5 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .teachableLearnset = sDanteTeachableLearnset,
         .formSpeciesIdTable = sDanteFormSpeciesIdTable,
         .formChangeTable = sDanteFormChangeTable,
-    },
-
-    [SPECIES_SHIVA] =
-    {
-        .baseHP        = 154,
-        .baseAttack    = 80,
-        .baseDefense   = 127,
-        .baseSpeed     = 94,
-        .baseSpAttack  = 140,
-        .baseSpDefense = 125,
-        .types = MON_TYPES(TYPE_FIRE, TYPE_ELECTRIC),
-        .catchRate = 45,
-        .expYield = 144,
-        .evYield_Attack = 3,
-        .evYield_SpAttack = 3,
-        .evYield_Speed = 3,
-        .genderRatio = MON_MALE,
-        .eggCycles = 20,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_MEDIUM_SLOW,
-        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_DANCER, ABILITY_NONE, ABILITY_PURE_POWER },
-        .bodyColor = BODY_COLOR_BLUE,
-        .speciesName = _("Shiva"),
-        .cryId = CRY_SHIVA,
-        .natDexNum = NATIONAL_DEX_SHIVA,
-        .categoryName = _("Destruction"),
-        .height = 26,
-        .weight = 2400,
-        .description = COMPOUND_STRING(
-            "The Hindu destroyer of the world and one\n"
-            "of the Trimurti. He is the most worshipped\n"
-            "Hindu god alongside Vishnu. He purifies the\n"
-            "world with destruction so it can be reborn."),
-        .pokemonScale = 356,
-        .pokemonOffset = 17,
-        .trainerScale = 256,
-        .trainerOffset = 0,
-        .frontPic = gMonFrontPic_Shiva,
-        .frontPicSize = MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = 3,
-        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
-        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
-        .backPic = gMonBackPic_Shiva,
-        .backPicSize = MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = 6,
-        //.backAnimId = BACK_ANIM_NONE,
-        .palette = gMonPalette_Shiva,
-        .shinyPalette = gMonShinyPalette_Shiva,
-        .iconSprite = gMonIcon_Shiva,
-        .iconPalIndex = 1,
-        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
-        SHADOW(-3, 11, SHADOW_SIZE_M)
-        FOOTPRINT(Shiva)
-        .isMythical = TRUE,
-        .isFrontierBanned = TRUE,
-        .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
-        .levelUpLearnset = sShivaLevelUpLearnset,
-        .teachableLearnset = sShivaTeachableLearnset,
     },
 };

@@ -2578,6 +2578,19 @@ gCryTable::
 	cry Cry_Dante
 	cry Cry_DanteDevil
 	cry Cry_Shiva
+	cry Cry_VohuManah
+	cry Cry_Sraosha
+	cry Cry_Thunderbird
+	cry Cry_Gnome
+	cry Cry_Barbegazi
+	cry Cry_Thanatos
+	cry Cry_Mot
+	cry Cry_Stolas
+	cry Cry_Andras
+	cry Cry_Amon
+	cry Cry_Yoshitsune
+	cry Cry_Obariyon
+	cry Cry_Putz
 .endif @ P_CRIES_ENABLED
 
 	.align 2
@@ -5160,4 +5173,17 @@ gCryTable_Reverse::
 	cry_reverse Cry_Dante
 	cry_reverse Cry_DanteDevil
 	cry_reverse Cry_Shiva
+	cry_reverse Cry_VohuManah
+	cry_reverse Cry_Sraosha
+	cry_reverse Cry_Thunderbird
+	cry_reverse Cry_Gnome
+	cry_reverse Cry_Barbegazi
+	cry_reverse Cry_Thanatos
+	cry_reverse Cry_Mot
+	cry_reverse Cry_Stolas
+	cry_reverse Cry_Andras
+	cry_reverse Cry_Amon
+	cry_reverse Cry_Yoshitsune
+	cry_reverse Cry_Obariyon
+	cry_reverse Cry_Putz
 .endif @ P_CRIES_ENABLED
