@@ -51322,7 +51322,6 @@ static const u16 sAndrasTeachableLearnset[] = {
     MOVE_EARTH_POWER,
     MOVE_DIG,
     MOVE_SUNNY_DAY,
-    MOVE_RAIN_DANCE,
     MOVE_SNARL,
     MOVE_FLING,
     MOVE_SHADOW_CLAW,
@@ -51336,6 +51335,7 @@ static const u16 sAndrasTeachableLearnset[] = {
 static const u16 sAmonTeachableLearnset[] = {
     MOVE_MEGA_PUNCH,
     MOVE_ROUND,
+    MOVE_SOLAR_BEAM,
     MOVE_REST,
     MOVE_ROCK_TOMB,
     MOVE_THIEF,
@@ -51355,7 +51355,6 @@ static const u16 sAmonTeachableLearnset[] = {
     MOVE_EARTH_POWER,
     MOVE_DIG,
     MOVE_SUNNY_DAY,
-    MOVE_RAIN_DANCE,
     MOVE_SNARL,
     MOVE_FLAMETHROWER,
     MOVE_FIRE_BLAST,

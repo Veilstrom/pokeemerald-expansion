@@ -111,14 +111,11 @@ static bool8 EscalatorWarpIn_End(struct Task *);
 
 static void Task_UseWaterfall(u8);
 static bool8 WaterfallFieldEffect_Init(struct Task *, struct ObjectEvent *);
-static bool8 WaterfallFieldEffect_ShowMon(struct Task *, struct ObjectEvent *);
-static bool8 WaterfallFieldEffect_WaitForShowMon(struct Task *, struct ObjectEvent *);
 static bool8 WaterfallFieldEffect_RideUp(struct Task *, struct ObjectEvent *);
 static bool8 WaterfallFieldEffect_ContinueRideOrEnd(struct Task *, struct ObjectEvent *);
 
 static void Task_UseDive(u8);
 static bool8 DiveFieldEffect_Init(struct Task *);
-static bool8 DiveFieldEffect_ShowMon(struct Task *);
 static bool8 DiveFieldEffect_TryWarp(struct Task *);
 
 static void Task_LavaridgeGymB1FWarp(u8);
@@ -165,6 +162,18 @@ static void TeleportWarpInFieldEffect_Init(struct Task *);
 static void TeleportWarpInFieldEffect_SpinEnter(struct Task *);
 static void TeleportWarpInFieldEffect_SpinGround(struct Task *);
 
+static void Task_ReturnPillarWarpOut(u8);
+static void ReturnPillarWarpOutFieldEffect_Init(struct Task *);
+static void ReturnPillarWarpOutFieldEffect_SpinGround(struct Task *);
+static void ReturnPillarWarpOutFieldEffect_SpinExit(struct Task *);
+static void ReturnPillarWarpOutFieldEffect_End(struct Task *);
+
+static void FieldCallback_ReturnPillarWarpIn(void);
+static void Task_ReturnPillarWarpIn(u8);
+static void ReturnPillarWarpInFieldEffect_Init(struct Task *);
+static void ReturnPillarWarpInFieldEffect_SpinEnter(struct Task *);
+static void ReturnPillarWarpInFieldEffect_SpinGround(struct Task *);
+
 static void Task_FieldMoveShowMonOutdoors(u8);
 static void FieldMoveShowMonOutdoorsEffect_Init(struct Task *);
 static void FieldMoveShowMonOutdoorsEffect_LoadGfx(struct Task *);
@@ -196,8 +205,6 @@ static void SpriteCB_FieldMoveMonSlideOffscreen(struct Sprite *);
 
 static void Task_SurfFieldEffect(u8);
 static void SurfFieldEffect_Init(struct Task *);
-static void SurfFieldEffect_FieldMovePose(struct Task *);
-static void SurfFieldEffect_ShowMon(struct Task *);
 static void SurfFieldEffect_JumpOnSurfBlob(struct Task *);
 static void SurfFieldEffect_End(struct Task *);
 
@@ -666,8 +673,6 @@ static bool8 (*const sEscalatorWarpInFieldEffectFuncs[])(struct Task *) =
 static bool8 (*const sWaterfallFieldEffectFuncs[])(struct Task *, struct ObjectEvent *) =
 {
     WaterfallFieldEffect_Init,
-    WaterfallFieldEffect_ShowMon,
-    WaterfallFieldEffect_WaitForShowMon,
     WaterfallFieldEffect_RideUp,
     WaterfallFieldEffect_ContinueRideOrEnd,
 };
@@ -675,7 +680,6 @@ static bool8 (*const sWaterfallFieldEffectFuncs[])(struct Task *, struct ObjectE
 static bool8 (*const sDiveFieldEffectFuncs[])(struct Task *) =
 {
     DiveFieldEffect_Init,
-    DiveFieldEffect_ShowMon,
     DiveFieldEffect_TryWarp,
 };
 
@@ -1841,7 +1845,7 @@ static bool8 EscalatorWarpIn_Init(struct Task *task)
     {
         // If dest is down escalator tile, player is riding up
         behavior = TRUE;
-        task->tState = 3; // jump to EscalatorWarpIn_Up_Init
+        task->tState = 1; // jump to EscalatorWarpIn_Up_Init
     }
     else // MB_UP_ESCALATOR
     {
@@ -1965,29 +1969,6 @@ static bool8 WaterfallFieldEffect_Init(struct Task *task, struct ObjectEvent *ob
     return FALSE;
 }
 
-static bool8 WaterfallFieldEffect_ShowMon(struct Task *task, struct ObjectEvent *objectEvent)
-{
-    LockPlayerFieldControls();
-    if (!ObjectEventIsMovementOverridden(objectEvent))
-    {
-        ObjectEventClearHeldMovementIfFinished(objectEvent);
-        gFieldEffectArguments[0] = task->tMonId;
-        FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
-        task->tState++;
-    }
-    return FALSE;
-}
-
-static bool8 WaterfallFieldEffect_WaitForShowMon(struct Task *task, struct ObjectEvent *objectEvent)
-{
-    if (FieldEffectActiveListContains(FLDEFF_FIELD_MOVE_SHOW_MON))
-    {
-        return FALSE;
-    }
-    task->tState++;
-    return TRUE;
-}
-
 static bool8 WaterfallFieldEffect_RideUp(struct Task *task, struct ObjectEvent *objectEvent)
 {
     ObjectEventSetHeldMovement(objectEvent, GetWalkSlowMovementAction(DIR_NORTH));
@@ -2021,8 +2002,6 @@ bool8 FldEff_UseDive(void)
 {
     u8 taskId;
     taskId = CreateTask(Task_UseDive, 0xff);
-    gTasks[taskId].data[15] = gFieldEffectArguments[0];
-    gTasks[taskId].data[14] = gFieldEffectArguments[1];
     Task_UseDive(taskId);
     return FALSE;
 }
@@ -2039,27 +2018,14 @@ static bool8 DiveFieldEffect_Init(struct Task *task)
     return FALSE;
 }
 
-static bool8 DiveFieldEffect_ShowMon(struct Task *task)
-{
-    LockPlayerFieldControls();
-    gFieldEffectArguments[0] = task->data[15];
-    FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
-    task->data[0]++;
-    return FALSE;
-}
-
 static bool8 DiveFieldEffect_TryWarp(struct Task *task)
 {
     struct MapPosition mapPosition;
     PlayerGetDestCoords(&mapPosition.x, &mapPosition.y);
 
-    // Wait for show mon first
-    if (!FieldEffectActiveListContains(FLDEFF_FIELD_MOVE_SHOW_MON))
-    {
-        TryDoDiveWarp(&mapPosition, gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior);
-        DestroyTask(FindTaskIdByFunc(Task_UseDive));
-        FieldEffectActiveListRemove(FLDEFF_USE_DIVE);
-    }
+    TryDoDiveWarp(&mapPosition, gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior);
+	DestroyTask(FindTaskIdByFunc(Task_UseDive));
+	FieldEffectActiveListRemove(FLDEFF_USE_DIVE);
     return FALSE;
 }
 
@@ -2786,6 +2752,224 @@ static void TeleportWarpInFieldEffect_SpinGround(struct Task *task)
     }
 }
 
+void FldEff_ReturnPillarWarpOut(void)
+{
+    CreateTask(Task_ReturnPillarWarpOut, 0);
+}
+
+static void (*const sReturnPillarWarpOutFieldEffectFuncs[])(struct Task *) = {
+    ReturnPillarWarpOutFieldEffect_Init,
+    ReturnPillarWarpOutFieldEffect_SpinGround,
+    ReturnPillarWarpOutFieldEffect_SpinExit,
+    ReturnPillarWarpOutFieldEffect_End
+};
+
+static void Task_ReturnPillarWarpOut(u8 taskId)
+{
+    sReturnPillarWarpOutFieldEffectFuncs[gTasks[taskId].tState](&gTasks[taskId]);
+}
+
+static void ReturnPillarWarpOutFieldEffect_Init(struct Task *task)
+{
+    LockPlayerFieldControls();
+    FreezeObjectEvents();
+    CameraObjectFreeze();
+    task->data[15] = GetPlayerFacingDirection();
+    task->tState++;
+}
+
+static void ReturnPillarWarpOutFieldEffect_SpinGround(struct Task *task)
+{
+    u8 spinDirections[5] = {DIR_SOUTH, DIR_WEST, DIR_EAST, DIR_NORTH, DIR_SOUTH};
+    struct ObjectEvent *objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+    if (task->data[1] == 0 || (--task->data[1]) == 0)
+    {
+        ObjectEventTurn(objectEvent, spinDirections[objectEvent->facingDirection]);
+        task->data[1] = 8;
+        task->data[2]++;
+    }
+    if (task->data[2] > 7 && task->data[15] == objectEvent->facingDirection)
+    {
+        task->tState++;
+        task->data[1] = 4;
+        task->data[2] = 8;
+        task->data[3] = 1;
+        PlaySE(SE_WARP_IN);
+    }
+}
+
+static void ReturnPillarWarpOutFieldEffect_SpinExit(struct Task *task)
+{
+    u8 spinDirections[5] = {DIR_SOUTH, DIR_WEST, DIR_EAST, DIR_NORTH, DIR_SOUTH};
+    struct ObjectEvent *objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+    struct Sprite *sprite = &gSprites[gPlayerAvatar.spriteId];
+    if ((--task->data[1]) <= 0)
+    {
+        task->data[1] = 4;
+        ObjectEventTurn(objectEvent, spinDirections[objectEvent->facingDirection]);
+    }
+    sprite->y -= task->data[3];
+    task->data[4] += task->data[3];
+    if ((--task->data[2]) <= 0 && (task->data[2] = 4, task->data[3] < 8))
+    {
+        task->data[3] <<= 1;
+    }
+    if (task->data[4] > 8 && (sprite->oam.priority = 1, sprite->subspriteMode != SUBSPRITES_OFF))
+    {
+        sprite->subspriteMode = SUBSPRITES_IGNORE_PRIORITY;
+    }
+    if (task->data[4] >= DISPLAY_HEIGHT + 8)
+    {
+        task->tState++;
+        TryFadeOutOldMapMusic();
+        WarpFadeOutScreen();
+    }
+}
+
+static void ReturnPillarWarpOutFieldEffect_End(struct Task *task)
+{
+    if (!gPaletteFade.active)
+    {
+        if (task->data[5] == FALSE)
+        {
+            ClearMirageTowerPulseBlendEffect();
+            task->data[5] = TRUE;
+        }
+
+        if (BGMusicStopped() == TRUE)
+        {
+            WarpIntoMap();
+            SetMainCallback2(CB2_LoadMap);
+            gFieldCallback = FieldCallback_ReturnPillarWarpIn;
+            DestroyTask(FindTaskIdByFunc(Task_ReturnPillarWarpOut));
+        }
+    }
+}
+
+static void FieldCallback_ReturnPillarWarpIn(void)
+{
+    Overworld_PlaySpecialMapMusic();
+    WarpFadeInScreen();
+    LockPlayerFieldControls();
+    FreezeObjectEvents();
+    gFieldCallback = NULL;
+    gObjectEvents[gPlayerAvatar.objectEventId].invisible = TRUE;
+    CameraObjectFreeze();
+    CreateTask(Task_ReturnPillarWarpIn, 0);
+}
+
+static void (*const sReturnPillarWarpInFieldEffectFuncs[])(struct Task *) = {
+    ReturnPillarWarpInFieldEffect_Init,
+    ReturnPillarWarpInFieldEffect_SpinEnter,
+    ReturnPillarWarpInFieldEffect_SpinGround
+};
+
+static void Task_ReturnPillarWarpIn(u8 taskId)
+{
+    sReturnPillarWarpInFieldEffectFuncs[gTasks[taskId].data[0]](&gTasks[taskId]);
+}
+
+static void ReturnPillarWarpInFieldEffect_Init(struct Task *task)
+{
+    struct Sprite *sprite;
+    s16 centerToCornerVecY;
+    if (IsWeatherNotFadingIn())
+    {
+        sprite = &gSprites[gPlayerAvatar.spriteId];
+        centerToCornerVecY = -(sprite->centerToCornerVecY << 1);
+        sprite->y2 = -(sprite->y + sprite->centerToCornerVecY + gSpriteCoordOffsetY + centerToCornerVecY);
+        gObjectEvents[gPlayerAvatar.objectEventId].invisible = FALSE;
+        task->data[0]++;
+        task->data[1] = 8;
+        task->data[2] = 1;
+        task->data[14] = sprite->subspriteMode;
+        task->data[15] = GetPlayerFacingDirection();
+        PlaySE(SE_WARP_IN);
+    }
+}
+
+static void ReturnPillarWarpInFieldEffect_SpinEnter(struct Task *task)
+{
+    u8 spinDirections[5] = {DIR_SOUTH, DIR_WEST, DIR_EAST, DIR_NORTH, DIR_SOUTH};
+    struct ObjectEvent *objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+    struct Sprite *sprite = &gSprites[gPlayerAvatar.spriteId];
+    if ((sprite->y2 += task->data[1]) >= -8)
+    {
+        if (task->data[13] == 0)
+        {
+            task->data[13]++;
+            objectEvent->triggerGroundEffectsOnMove = TRUE;
+            sprite->subspriteMode = task->data[14];
+        }
+    }
+    else
+    {
+        sprite->oam.priority = 1;
+        if (sprite->subspriteMode != SUBSPRITES_OFF)
+        {
+            sprite->subspriteMode = SUBSPRITES_IGNORE_PRIORITY;
+        }
+    }
+    if (sprite->y2 >= -0x30 && task->data[1] > 1 && !(sprite->y2 & 1))
+    {
+        task->data[1]--;
+    }
+    if ((--task->data[2]) == 0)
+    {
+        task->data[2] = 4;
+        ObjectEventTurn(objectEvent, spinDirections[objectEvent->facingDirection]);
+    }
+    if (sprite->y2 >= 0)
+    {
+        sprite->y2 = 0;
+        task->data[0]++;
+        task->data[1] = 1;
+        task->data[2] = 0;
+        task->data[3] = 0;
+    }
+}
+
+static void ReturnPillarWarpInFieldEffect_SpinGround(struct Task *task)
+{
+    struct ObjectEvent *player = &gObjectEvents[gPlayerAvatar.objectEventId];
+    struct ObjectEvent *follower = &gObjectEvents[GetFollowerNPCObjectId()];
+
+    u8 spinDirections[5] = {DIR_SOUTH, DIR_WEST, DIR_EAST, DIR_NORTH, DIR_SOUTH};
+    if ((--task->data[1]) == 0 && task->data[3] == 0)
+    {
+        ObjectEventTurn(player, spinDirections[player->facingDirection]);
+        task->data[1] = 8;
+        if ((++task->data[2]) > 4 && task->data[14] == player->facingDirection)
+        {
+            if (FNPC_NPC_FOLLOWER_SHOW_AFTER_LEAVE_ROUTE)
+                FollowerNPCReappearAfterLeaveMap(follower, player);
+
+            task->data[3] = 1;
+        }
+    }
+    if (task->data[3] == 1)
+    {
+        if (PlayerHasFollowerNPC() && ObjectEventClearHeldMovementIfFinished(follower))
+        {
+            if (FNPC_NPC_FOLLOWER_SHOW_AFTER_LEAVE_ROUTE)
+                FollowerNPCFaceAfterLeaveMap();
+
+            task->data[3]++;
+        }
+        else if (!PlayerHasFollowerNPC())
+        {
+            task->data[3]++;
+        }
+    }
+    if (task->data[3] == 2)
+    {
+        UnlockPlayerFieldControls();
+        CameraObjectReset();
+        UnfreezeObjectEvents();
+        DestroyTask(FindTaskIdByFunc(Task_ReturnPillarWarpIn));
+    }
+}
+
 // Task data for Task_FieldMoveShowMonOutDoors
 #define tState       data[0]
 #define tWinHoriz    data[1]
@@ -3231,8 +3415,6 @@ u8 FldEff_UseSurf(void)
 
 static void (*const sSurfFieldEffectFuncs[])(struct Task *) = {
     SurfFieldEffect_Init,
-    SurfFieldEffect_FieldMovePose,
-    SurfFieldEffect_ShowMon,
     SurfFieldEffect_JumpOnSurfBlob,
     SurfFieldEffect_End,
 };
@@ -3253,30 +3435,6 @@ static void SurfFieldEffect_Init(struct Task *task)
     PlayerGetDestCoords(&task->tDestX, &task->tDestY);
     MoveCoords(gObjectEvents[gPlayerAvatar.objectEventId].movementDirection, &task->tDestX, &task->tDestY);
     task->tState++;
-}
-
-static void SurfFieldEffect_FieldMovePose(struct Task *task)
-{
-    struct ObjectEvent *objectEvent;
-    objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
-    if (!ObjectEventIsMovementOverridden(objectEvent) || ObjectEventClearHeldMovementIfFinished(objectEvent))
-    {
-        SetPlayerAvatarFieldMove();
-        ObjectEventSetHeldMovement(objectEvent, MOVEMENT_ACTION_START_ANIM_IN_DIRECTION);
-        task->tState++;
-    }
-}
-
-static void SurfFieldEffect_ShowMon(struct Task *task)
-{
-    struct ObjectEvent *objectEvent;
-    objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
-    if (ObjectEventCheckHeldMovementStatus(objectEvent))
-    {
-        gFieldEffectArguments[0] = task->tMonId | SHOW_MON_CRY_NO_DUCKING;
-        FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
-        task->tState++;
-    }
 }
 
 static void SurfFieldEffect_JumpOnSurfBlob(struct Task *task)
@@ -3404,11 +3562,9 @@ static void SpriteCB_NPCFlyOut(struct Sprite *sprite)
 #define sPlayerSpriteId data[6]
 #define sAnimCompleted  data[7]
 
-u8 FldEff_UseFly(void)
+void FldEff_UseFly(void)
 {
-    u8 taskId = CreateTask(Task_FlyOut, 254);
-    gTasks[taskId].tMonId = gFieldEffectArguments[0];
-    return 0;
+    CreateTask(Task_ReturnPillarWarpOut, 0);
 }
 
 static void (*const sFlyOutFieldEffectFuncs[])(struct Task *) = {

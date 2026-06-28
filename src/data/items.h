@@ -14589,6 +14589,119 @@ const struct Item gItemsInfo[] =
         .iconPic = gItemIcon_PokeshiDoll,
         .iconPalette = gItemIconPalette_PokeshiDoll,
     },
+
+	// HM Items
+    [ITEM_SURFBOARD] =
+    {
+        .name = ITEM_NAME("Surfboard"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "This flat board\n"
+            "is shaped for\n"
+            "riding waves."),
+		.importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_Surfboard,
+        .iconPic = gItemIcon_Surfboard,
+        .iconPalette = gItemIconPalette_Surfboard,
+    },
+
+	[ITEM_AXE] =
+    {
+        .name = ITEM_NAME("Axe"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A small cutting\n"
+            "instrument best for\n"
+            "clearing bushes."),
+		.importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_Axe,
+        .iconPic = gItemIcon_Axe,
+        .iconPalette = gItemIconPalette_Axe,
+    },
+
+	[ITEM_HAMMER] =
+    {
+        .name = ITEM_NAME("Hammer"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A small rubber\n"
+            "mallet. It can\n"
+            "smash rocks."),
+		.importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_Hammer,
+        .iconPic = gItemIcon_Hammer,
+        .iconPalette = gItemIconPalette_Hammer,
+    },
+
+	[ITEM_DIVING_SUIT] =
+    {
+        .name = ITEM_NAME("Diving Suit"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Portable suit made\n"
+            "for diving from\n"
+            "the surfboard."),
+		.importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_DivingSuit,
+        .iconPic = gItemIcon_DivingSuit,
+        .iconPalette = gItemIconPalette_DivingSuit,
+    },
+
+	[ITEM_LANTERN] =
+    {
+        .name = ITEM_NAME("Lantern"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A bright lantern\n"
+            "that can light dark\n"
+            "caves."),
+		.importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_Lantern,
+        .iconPic = gItemIcon_Lantern,
+        .iconPalette = gItemIconPalette_Lantern,
+    },
+
+	[ITEM_POWER_GLOVE] =
+    {
+        .name = ITEM_NAME("Power Glove"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A special glove\n"
+            "that makes moving\n"
+            "heavy rocks easy."),
+		.importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_PowerGlove,
+        .iconPic = gItemIcon_PowerGlove,
+        .iconPalette = gItemIconPalette_PowerGlove,
+	},
+
+	[ITEM_RETURN_PILLAR] =
+    {
+        .name = ITEM_NAME("Return Pillar"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A small totem\n"
+            "that sends you to\n"
+            "previous areas."),
+		.importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_ReturnPillar,
+        .iconPic = gItemIcon_ReturnPillar,
+        .iconPalette = gItemIconPalette_ReturnPillar,
+	},
 };
 
 #undef ITEM_NAME

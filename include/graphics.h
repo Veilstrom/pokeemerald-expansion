@@ -1630,6 +1630,20 @@ extern const u16 gItemIconPalette_Tea[];
 extern const u32 gItemIcon_Gem[];
 extern const u16 gItemIconPalette_Ruby[];
 extern const u16 gItemIconPalette_Sapphire[];
+extern const u32 gItemIcon_Surfboard[];
+extern const u16 gItemIconPalette_Surfboard[];
+extern const u32 gItemIcon_Axe[];
+extern const u16 gItemIconPalette_Axe[];
+extern const u32 gItemIcon_Hammer[];
+extern const u16 gItemIconPalette_Hammer[];
+extern const u32 gItemIcon_DivingSuit[];
+extern const u16 gItemIconPalette_DivingSuit[];
+extern const u32 gItemIcon_Lantern[];
+extern const u16 gItemIconPalette_Lantern[];
+extern const u32 gItemIcon_PowerGlove[];
+extern const u16 gItemIconPalette_PowerGlove[];
+extern const u32 gItemIcon_ReturnPillar[];
+extern const u16 gItemIconPalette_ReturnPillar[];
 
 // GEN IX ITEMS
 extern const u32 gItemIcon_AbilityShield[];

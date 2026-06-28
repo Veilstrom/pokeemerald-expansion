@@ -14,12 +14,14 @@
 #include "event_object_movement.h"
 #include "event_scripts.h"
 #include "fieldmap.h"
+#include "field_control_avatar.h"
 #include "field_effect.h"
 #include "field_player_avatar.h"
 #include "field_screen_effect.h"
 #include "field_weather.h"
 #include "fldeff.h"
 #include "follower_npc.h"
+#include "fldeff.h"
 #include "item.h"
 #include "item_menu.h"
 #include "item_use.h"
@@ -33,6 +35,7 @@
 #include "party_menu.h"
 #include "pokeblock.h"
 #include "pokemon.h"
+#include "region_map.h"
 #include "script.h"
 #include "sound.h"
 #include "strings.h"
@@ -44,6 +47,7 @@
 #include "constants/event_objects.h"
 #include "constants/item_effects.h"
 #include "constants/items.h"
+#include "constants/map_types.h"
 #include "constants/songs.h"
 
 static void SetUpItemUseCallback(u8);
@@ -78,6 +82,13 @@ static void Task_UseLure(u8 taskId);
 static void Task_CloseCantUseKeyItemMessage(u8);
 static void SetDistanceOfClosestHiddenItem(u8, s16, s16);
 static void CB2_OpenPokeblockFromBag(void);
+static void ItemUseOnFieldCB_Surfboard(u8);
+static void ItemUseOnFieldCB_Axe(u8);
+static void ItemUseOnFieldCB_Hammer(u8);
+static void ItemUseOnFieldCB_DivingSuitAboveWater(u8);
+static void ItemUseOnFieldCB_DivingSuitUnderwater(u8);
+static void ItemUseOnFieldCB_Lantern(u8);
+static void ItemUseOnFieldCB_PowerGlove(u8);
 static void ItemUseOnFieldCB_Honey(u8 taskId);
 static bool32 IsValidLocationForVsSeeker(void);
 
@@ -89,9 +100,9 @@ static const u8 sText_CoinCase[] = _("Your COINS:\n{STR_VAR_1}{PAUSE_UNTIL_PRESS
 static const u8 sText_PowderQty[] = _("POWDER QTY: {STR_VAR_1}{PAUSE_UNTIL_PRESS}");
 static const u8 sText_BootedUpTM[] = _("Booted up a TM.");
 static const u8 sText_BootedUpHM[] = _("Booted up an HM.");
-static const u8 sText_TMHMContainedVar1[] = _("It contained\n{STR_VAR_1}.\pTeach {STR_VAR_1}\nto a POKéMON?");
-static const u8 sText_UsedVar2WildLured[] = _("{PLAYER} used the\n{STR_VAR_2}.\pWild POKéMON will be lured.{PAUSE_UNTIL_PRESS}");
-static const u8 sText_UsedVar2WildRepelled[] = _("{PLAYER} used the\n{STR_VAR_2}.\pWild POKéMON will be repelled.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_TMHMContainedVar1[] = _("It contained\n{STR_VAR_1}.\pTeach {STR_VAR_1}\nto a DEMON?");
+static const u8 sText_UsedVar2WildLured[] = _("{PLAYER} used the\n{STR_VAR_2}.\pWild DEMONS will be lured.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_UsedVar2WildRepelled[] = _("{PLAYER} used the\n{STR_VAR_2}.\pWild DEMONS will be repelled.{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PlayedPokeFluteCatchy[] = _("Played the POKé FLUTE.\pNow, that's a catchy tune!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PlayedPokeFlute[] = _("Played the POKé FLUTE.");
 static const u8 sText_PokeFluteAwakenedMon[] = _("The POKé FLUTE awakened sleeping\nPOKéMON.{PAUSE_UNTIL_PRESS}");
@@ -1469,6 +1480,146 @@ void ItemUseOutOfBattle_Honey(u8 taskId)
 
 void ItemUseOutOfBattle_CannotUse(u8 taskId)
 {
+    DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+}
+
+void ItemUseOutOfBattle_Surfboard(u8 taskId)
+{
+    if (IsPlayerFacingSurfableFishableWater() == TRUE)
+    {
+        sItemUseOnFieldCB = ItemUseOnFieldCB_Surfboard;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
+    else
+        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+}
+
+static void ItemUseOnFieldCB_Surfboard(u8 taskId)
+{
+	ScriptContext_Enable();
+    ScriptContext_SetupScript(EventScript_UseSurf);
+    DestroyTask(taskId);
+}
+
+void ItemUseOutOfBattle_Axe(u8 taskId)
+{
+    if (SetUpFieldMove_Cut() == TRUE)
+    {
+        sItemUseOnFieldCB = ItemUseOnFieldCB_Axe;
+		SetUpItemUseOnFieldCallback(taskId);
+    }
+    else
+        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+}
+
+static void ItemUseOnFieldCB_Axe(u8 taskId)
+{
+	ScriptContext_Enable();
+    ScriptContext_SetupScript(EventScript_UseCut);
+    DestroyTask(taskId);
+}
+
+void ItemUseOutOfBattle_Hammer(u8 taskId)
+{
+    if (SetUpFieldMove_RockSmash() == TRUE)
+    {
+        sItemUseOnFieldCB = ItemUseOnFieldCB_Hammer;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
+    else
+        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+}
+
+static void ItemUseOnFieldCB_Hammer(u8 taskId)
+{
+	ScriptContext_Enable();
+    ScriptContext_SetupScript(EventScript_UseRockSmash);
+    DestroyTask(taskId);
+}
+
+void ItemUseOutOfBattle_DivingSuit(u8 taskId)
+{
+    if (TrySetDiveWarp() == 2)
+    {
+        sItemUseOnFieldCB = ItemUseOnFieldCB_DivingSuitAboveWater;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
+    else if (gMapHeader.mapType == MAP_TYPE_UNDERWATER && TrySetDiveWarp() == 1)
+	{
+		sItemUseOnFieldCB = ItemUseOnFieldCB_DivingSuitUnderwater;
+        SetUpItemUseOnFieldCallback(taskId);
+	}
+	else
+        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+}
+
+static void ItemUseOnFieldCB_DivingSuitAboveWater(u8 taskId)
+{
+	ScriptContext_Enable();
+    ScriptContext_SetupScript(EventScript_UseDive);
+    DestroyTask(taskId);
+}
+
+static void ItemUseOnFieldCB_DivingSuitUnderwater(u8 taskId)
+{
+	ScriptContext_Enable();
+    ScriptContext_SetupScript(EventScript_UseDiveUnderwater);
+    DestroyTask(taskId);
+}
+
+void ItemUseOutOfBattle_Lantern(u8 taskId)
+{
+    if (SetUpFieldMove_Flash())
+    {
+        sItemUseOnFieldCB = ItemUseOnFieldCB_Lantern;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
+    else
+        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+}
+
+static void ItemUseOnFieldCB_Lantern(u8 taskId)
+{
+	ScriptContext_Enable();
+    ScriptContext_SetupScript(EventScript_UseFlash);
+    DestroyTask(taskId);
+}
+
+void ItemUseOutOfBattle_PowerGlove(u8 taskId)
+{
+    if (SetUpFieldMove_Strength())
+    {
+        sItemUseOnFieldCB = ItemUseOnFieldCB_PowerGlove;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
+    else
+        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+}
+
+static void ItemUseOnFieldCB_PowerGlove(u8 taskId)
+{
+	ScriptContext_Enable();
+    ScriptContext_SetupScript(EventScript_UseStrength);
+    DestroyTask(taskId);
+}
+
+
+void ItemUseOutOfBattle_ReturnPillar(u8 taskId)
+{
+    if (Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) == TRUE)
+    {
+        if (!gTasks[taskId].tUsingRegisteredKeyItem)
+        {
+            gBagMenu->newScreenCallback = CB2_OpenFlyMap;
+            Task_FadeAndCloseBagMenu(taskId);
+        }
+        else
+        {
+            SetMainCallback2(CB2_OpenFlyMap);
+            DestroyTask(taskId);
+        }
+    }
+    else
     DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
 }
 

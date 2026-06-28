@@ -1791,8 +1791,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .types = MON_TYPES(TYPE_ICE),
         .catchRate = 45,
         .expYield = 144,
-        .evYield_Defense = 1,
-        .evYield_SpDefense = 1,
+        .evYield_Attack = 1,
+        .evYield_SpAttack = 1,
         .genderRatio = PERCENT_FEMALE(50.0),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
@@ -8913,10 +8913,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
     {
         .baseHP        = 100,
         .baseAttack    = 90,
-        .baseDefense   = 85,
+        .baseDefense   = 90,
         .baseSpeed     = 70,
         .baseSpAttack  = 110,
-        .baseSpDefense = 85,
+        .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_FLYING, TYPE_DARK),
         .catchRate = 45,
         .expYield = 144,
@@ -8960,6 +8960,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(-3, 11, SHADOW_SIZE_M)
         FOOTPRINT(Mastema)
+        .isLegendary = TRUE,
+        .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
         .levelUpLearnset = sMastemaLevelUpLearnset,
         .teachableLearnset = sMastemaTeachableLearnset,
     },
